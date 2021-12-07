@@ -3,7 +3,7 @@ public class Main{
     public static void main(String [] args){
         System.out.println("Hi");
         dbase.getConnection();
-        System.out.println("DONE!");
+        System.out.println("-!DONE!-");
         /*
         try{
             for(String i : dbase.getData(1)){
