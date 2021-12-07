@@ -1,0 +1,16 @@
+If you are using IDE:         ADD THE 'mysql-connector-java-8.0.27.jar' TO THE DEPENDENCIES SECTION
+                              Intellij - https://www.youtube.com/watch?v=zGnL-LIFT9Y (2:31 - 3:31)
+                              Netbeans - https://www.youtube.com/watch?v=XYLhgOpGfps (5:10 - 6:10)
+                              Run as usual.
+
+
+If you are running from CLI:  ADD THE 'mysql-connector-java-8.0.27.jar' TO THE SAME DIR AS YOUR JAVA FILE
+                              RUN VIA CLI THE BELOW:
+
+                              java -cp mysql-connector-java-8.0.27.jar <JAVA_FILE_NAME>.java
+
+
+Clarification:
+With the -cp argument you provide the classpath i.e. path(s) to additional classes
+or libraries that your program may require when being compiled or run. With -jar
+you specify the executable JAR file that you want to run.
