@@ -1,0 +1,49 @@
+gmail API: https://developers.google.com/gmail/api/guides/sending
+how: https://cloud.google.com/apis/docs/getting-started
+Google Cloud console: https://console.cloud.google.com/apis/library/browse?_ga=2.212668820.-1676940133.1635388121&pli=1
+Basic: GUI
+Adv: JavaFX
+SQLite: https://www.tutorialspoint.com/sqlite/sqlite_java.htm
+
+
+Customer
+1. Showtimes
+    - The system should display all the movies that are available. The customer can look up
+      information about the movie (release date, casts, synopsis)
+2. Book now
+    - Select your preferred movie, day, time, and seat (available/unavailable). Seats that have been selected cannot be chosen.
+    - Implement social distancing for the seat (guests from the same family and residence are allowed to sit in pairs).
+    - The system should display the ticket price.
+3. Food & Beverages
+    - The system displays all the F&B options and pricing.
+4. Payment
+    - The total expenses.
+    - The system can only accept credit/debit card payments, practically eliminating any risk of
+      having to deal with matters like tracking down the customer to properly pay for the tickets or
+      food.
+5. Ticket
+    - The system will display the movie ticket (seat, hall, movie, timing)
+
+
+Staff
+1. Movie
+    - The system enables the staff to add or remove the movie. The movie’s showtimes (day, time)
+can be added by the staff. 2. Seat
+    - The system allows the staff to edit seat capacity according to each theatre of a different capacity.
+3. Payment
+    - The system allows the staff to set the price for the movie. The movie has varied price levels
+      depending on the class (Student price, Classic, Premium).
+4. Food & Beverages
+- The system allows the staff to add the F&B options and prices.
+
+
+Other requirements
+1. Login (Registration & Authentication)
+    - A new customer can create a new account by providing some info such as email address,
+      password, phone number, and name to create a GSC account.
+    - New staff can create a new account by providing some info such as email address, staff ID,
+      password, full name, etc.
+    - Existing customers and staff can log in to the application by entering their login credentials
+      (email and password).
+    - All the credentials should be kept in a secure location (offline or online). The users’ data
+      should not vanish after each reboot.
