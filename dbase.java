@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -39,6 +38,26 @@ public class dbase{
             System.out.println("Connection Closed");
         } catch (Exception e){
             System.out.println("ERROR: CONNECTION CANNOT BE CLOSED!");
+            e.printStackTrace();
+        }
+    }
+
+    public static void getInfo(){
+        //predefined: url, uname, password, query
+        String query = "SELECT * FROM customer";
+        String data;
+        try {
+            ResultSet result = statement.executeQuery(query);
+            System.out.println("Received Info: ");
+            while (result.next()) {                       //each row of data from DB
+                data = "";
+                for (int i = 1; i <= 6; i++) {
+                    data += result.getString(i) + ":";  // get data from row
+                }
+                System.out.println(data);
+            }
+        } catch(Exception e){
+            System.out.println("ERROR: SOMETHING WRONG WITH EXECUTING QUERY!");
             e.printStackTrace();
         }
     }

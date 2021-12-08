@@ -2,6 +2,7 @@
 public class Main{
     public static void main(String [] args){
         dbase.getConnection();
+        dbase.getInfo();
         dbase.closeConnection();
         System.out.println("-!DONE!-");
         /*
