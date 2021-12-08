@@ -12,6 +12,7 @@ public class dbase{
         String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
         String uname = "root";
         String password = "J0hnLegend";
+
         //String query = "CREATE TABLE movie(No INT AUTO_INCREMENT, title VARCHAR(100), reldate DATE, showdate DATE, casts VARCHAR(1000), synopsis VARCHAR(10000));";
         String data = "";
         try{
