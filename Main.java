@@ -1,8 +1,8 @@
 // main driver code
 public class Main{
     public static void main(String [] args){
-        System.out.println("Hi");
         dbase.getConnection();
+        dbase.closeConnection();
         System.out.println("-!DONE!-");
         /*
         try{

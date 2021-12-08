@@ -15,23 +15,18 @@ public class dbase{
     static Connection con;
     static Statement statement;
 
-    public static void getConnection(){
-        //String query = "CREATE TABLE movie(No INT AUTO_INCREMENT, title VARCHAR(100), reldate DATE, showdate DATE, casts VARCHAR(1000), synopsis VARCHAR(10000));";
-        String data = "";
-        try{
+    public static void getConnection() {
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
-            System.out.println("classforname");
             //esentially checking if the required Driver is there.
-        } catch (ClassNotFoundException e){
+        } catch (ClassNotFoundException e) {
+            System.out.println("ERROR: 'com.mysql.cj.jdbc.Driver' MISSING!");
             e.printStackTrace();
         }
-        try{
+        try {
             con = DriverManager.getConnection(url, uname, password);
-            System.out.println("con");
             statement = con.createStatement();
-            System.out.println("statement");
-            con.close();
-            System.out.println("Connection Closed");
+            System.out.println("Connection established");
             //ResultSet result = statement.executeQuery(query);
             /*
             while(result.next()){  //each row of data from DB
@@ -42,10 +37,21 @@ public class dbase{
                 System.out.println(data);
             }
             */
-        } catch (SQLException e){
+        } catch (SQLException e) {
+            System.out.println("ERROR: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection\n - service url\n - Master username\n - Password");
             e.printStackTrace();
         }
+    }
 
+    public static void closeConnection(){
+        try{
+            con.close();
+            System.out.println("Connection Closed");
+        } catch (Exception e){
+            System.out.println("ERROR: CONNECTION CANNOT BE CLOSED!");
+            e.printStackTrace();
+        }
+    }
     /*
     static void createmovTBL(){
 
@@ -134,5 +140,4 @@ public class dbase{
             return "N/A";
         }
         */
-    }
 }
