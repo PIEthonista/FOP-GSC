@@ -7,13 +7,13 @@ import java.sql.Statement;
 
 
 public class dbase{
-    private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
-    //                         ^Endpoint                                           ^Port^DB
-    // Enabled inbound rules : ALL, IPv4 IPv6
-    private static String uname = "root";
-    private static String password = "J0hnLegend";
     static Connection con;
     static Statement statement;
+    private static String uname = "root";
+    private static String password = "J0hnLegend";
+    private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
+    //                                        ^Endpoint                                           ^Port^DB
+    // Enabled inbound rules : ALL, IPv4 IPv6
 
     public static void getConnection() {
         try {
@@ -27,16 +27,6 @@ public class dbase{
             con = DriverManager.getConnection(url, uname, password);
             statement = con.createStatement();
             System.out.println("Connection established");
-            //ResultSet result = statement.executeQuery(query);
-            /*
-            while(result.next()){  //each row of data from DB
-                data = "";
-                for(int i=1; i<=8; i++){
-                    data += result.getString(i) + ":";  // get data from row
-                }
-                System.out.println(data);
-            }
-            */
         } catch (SQLException e) {
             System.out.println("ERROR: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection\n - service url\n - Master username\n - Password");
             e.printStackTrace();
@@ -52,10 +42,8 @@ public class dbase{
             e.printStackTrace();
         }
     }
-    /*
-    static void createmovTBL(){
 
-    }
+    /*
     static void addmov(){}
     static void getmov(){}
     static void delmov(){}
@@ -74,70 +62,5 @@ public class dbase{
     static void addfnb(){}
     static void editfnb(){}
     static void delfnb(){}
-
-
-    static String[] getData(int i) throws Exception{   // =========Used for printing title when given number
-        // No,Title,ReleaseDate,ShowDate,Actor1:Character1|Actor2:Charater2... ,synopsis
-        File f = new File("./movi.csv");
-        Scanner sc = new Scanner(new File(f.getAbsolutePath()));
-        // "/Users/gohyixian/Documents/jvprojects/GSC/movi.csv"
-        sc.useDelimiter(",");   //sets the delimiter pattern
-        String [] data = {"No", "Title", "RelDate", "ShowDate", "Casts", "Synopsis"};
-        //                 1     2        3          4           5        6
-        int count = 1;
-        while(sc.hasNextLine()){
-            String str = sc.nextLine();
-            if (count==i){
-                data[0]=dbase.getInfo(str, 1, ',');
-                data[1]=dbase.getInfo(str, 2, ',');
-                data[2]=dbase.getInfo(str, 3, ',');
-                data[3]=dbase.getInfo(str, 4, ',');
-                data[4]=dbase.getInfo(str, 5, ',');
-                data[5]=dbase.getInfo(str, 6, ',');
-            }
-            count+=1;
-        }
-        sc.close();
-        return data;
-    }
-
-
-    static String getInfo(String str, int j, char sep) throws Exception {
-        ArrayList<String> arr = new ArrayList<String>();
-        int st=0;
-        int en=0;
-        int c=1;
-        for (int i=0; i<str.length(); i++){
-            if (i==(str.length()-1)){
-                arr.add(str.substring((st+1), i) + str.charAt(i));
-                break;
-            }
-            if (str.charAt(i)==sep){
-                en=i;
-                if(c!=1){
-                    st+=1;
-                }
-                arr.add(str.substring(st, en));
-                st=en;
-                c++;
-            }
-        }
-        return arr.get(j-1);
-        /*  //Doesn't work why??
-        if (i>5){
-            throw new Exception("ERROR: range 1-5 only.");
-        }
-        Pattern pat = Pattern.compile("[0-9]++,([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),");
-                                              // paste ,([A-za-z0-9 -+=_~!@#$%^&8<>./\']+?) after adding synopsis
-        System.out.println("Hi");
-        Matcher mat = pat.matcher(str);
-
-        return mat.group(i);
-
-        if(mat.find()){
-            return mat.group(i);
-        } else {
-            return "N/A";
-        }
-        */
+     */
 }
