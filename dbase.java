@@ -7,12 +7,15 @@ import java.sql.Statement;
 
 
 public class dbase{
-    // SQL methods
-    public static void getConnection(){
-        String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
-        String uname = "root";
-        String password = "J0hnLegend";
+    private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
+    //                         ^Endpoint                                           ^Port^DB
+    // Enabled inbound rules : ALL, IPv4 IPv6
+    private static String uname = "root";
+    private static String password = "J0hnLegend";
+    static Connection con;
+    static Statement statement;
 
+    public static void getConnection(){
         //String query = "CREATE TABLE movie(No INT AUTO_INCREMENT, title VARCHAR(100), reldate DATE, showdate DATE, casts VARCHAR(1000), synopsis VARCHAR(10000));";
         String data = "";
         try{
@@ -23,11 +26,12 @@ public class dbase{
             e.printStackTrace();
         }
         try{
-            Connection con = DriverManager.getConnection(url, uname, password);
+            con = DriverManager.getConnection(url, uname, password);
             System.out.println("con");
-            Statement statement = con.createStatement();
+            statement = con.createStatement();
             System.out.println("statement");
             con.close();
+            System.out.println("Connection Closed");
             //ResultSet result = statement.executeQuery(query);
             /*
             while(result.next()){  //each row of data from DB
