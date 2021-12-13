@@ -3,6 +3,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 
 public class dbase{
@@ -42,31 +43,39 @@ public class dbase{
         }
     }
 
-    public static String[][] getInfo(){
+    public static ArrayList<String> getEmailList(){
         //predefined: url, uname, password, query
-        String query = "SELECT * FROM customer";
-        String data;
-        String [][] arr = new String[4][6];
-        String [] temp = new String[6];
-        int j=0;
+        String query = "SELECT c_email FROM customer";
+        ArrayList<String> arr = new ArrayList<String>();
         try {
             ResultSet result = statement.executeQuery(query);
             System.out.println("Received Info: ");
             while (result.next()) {                       //each row of data from DB
-                data = "";
-                for (int i = 1; i <= 6; i++) {
-                    data += result.getString(i) + ":";    // get data from row
-                    temp[i-1]=result.getString(i);
-                }
-                arr[j] = temp;
-                j+=1;
-                System.out.println(data);
+                arr.add(result.getString(1));
             }
         } catch(Exception e){
             System.out.println("ERROR: SOMETHING WRONG WITH EXECUTING QUERY!");
             e.printStackTrace();
         }
         return arr;
+    }
+
+    public static void addCustomer(String name, String email, String uname, String pswd, String phno){
+        String query = "INSERT INTO customer(c_name, c_email, c_uname, c_pswd, c_phno) VALUES(\'"+name+"\',\'"+email+"\',\'"+uname+"\',\'"+pswd+"\',\'"+phno+"\');";
+        try {
+            con.setAutoCommit(false);
+            statement.addBatch(query);
+            System.out.println("Succesfully added to database!");
+        } catch(Exception e){
+            System.out.println("ERROR: SOMETHING WRONG WITH EXECUTING QUERY!");
+            e.printStackTrace();
+        } finally {
+            try{
+                con.setAutoCommit(true);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+        }
     }
 
     /*

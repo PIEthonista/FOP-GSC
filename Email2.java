@@ -20,17 +20,17 @@ public class Email2 {
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
         
-        String myAccountEmail = "gsc.customer.service.no.reply@gmail.com";
-        String password = "SingleInUM";
+        String EmailAcc = "gsc.customer.service.no.reply@gmail.com";
+        String Pswd = "SingleInUM";
         
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(myAccountEmail,password);
+                return new PasswordAuthentication(EmailAcc, Pswd);
             }
         });
     
-        Message message = prepareMessage(session, myAccountEmail, recepient, subject, text);
+        Message message = prepareMessage(session, EmailAcc, recepient, subject, text);
         try{
             Transport.send(message);
             System.out.println("Message sent successfully");
@@ -43,13 +43,13 @@ public class Email2 {
 
     //method called in send mail
     private static Message prepareMessage(Session session,
-                                          String myAccountEmail,
+                                          String email,
                                           String recepient,
                                           String subject,
                                           String text){
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setFrom(new InternetAddress(email));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
             message.setSubject(subject);   //subject here
             message.setText(text);         //text here
