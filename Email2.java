@@ -12,7 +12,7 @@ import javax.mail.Authenticator;
 import javax.mail.internet.AddressException;
 public class Email2 {
 
-    public static void main(String recepient) throws Exception {
+    public static void sendMail(String recepient, String subject, String text) throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
         properties.put("mail.smtp.auth","true");
@@ -20,8 +20,8 @@ public class Email2 {
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
         
-        String myAccountEmail = "U2102820@siswa.um.edu.my";
-        String password = "Jiayu_02";
+        String myAccountEmail = "gsc.customer.service.no.reply@gmail.com";
+        String password = "SingleInUM";
         
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
@@ -30,19 +30,29 @@ public class Email2 {
             }
         });
     
-        Message message = prepareMessage(session, myAccountEmail, recepient);
-        
-        Transport.send(message);
-        System.out.println("Message sent successfully");
+        Message message = prepareMessage(session, myAccountEmail, recepient, subject, text);
+        try{
+            Transport.send(message);
+            System.out.println("Message sent successfully");
+        } catch (Exception e){
+            System.out.println("ERROR: Message not sent!");
+            e.printStackTrace();
+        }
+
     }
-    
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient){
+
+    //method called in send mail
+    private static Message prepareMessage(Session session,
+                                          String myAccountEmail,
+                                          String recepient,
+                                          String subject,
+                                          String text){
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Hacker message alert!");
-            message.setText("This is the message");
+            message.setSubject(subject);   //subject here
+            message.setText(text);         //text here
             return message;
         } catch (Exception ex) {
             Logger.getLogger(Email2.class.getName()).log(Level.SEVERE, null, ex);

@@ -1,6 +1,7 @@
 // main driver code
 public class Main{
     public static void main(String [] args){
+        System.out.println("=== Database ===");
         dbase.getConnection();
         String [][] arr = dbase.getInfo();
         for(String[] i : arr){
@@ -10,6 +11,14 @@ public class Main{
             System.out.println("");
         }
         dbase.closeConnection();
+        System.out.println("=== Email ===");
+        try{
+            Email2.sendMail("waytheking@gmail.com", "Here are your tickets!", "*inserts ticket*");
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+
+
         System.out.println("-!DONE!-");
         /*
         try{
