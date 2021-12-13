@@ -2,7 +2,13 @@
 public class Main{
     public static void main(String [] args){
         dbase.getConnection();
-        dbase.getInfo();
+        String [][] arr = dbase.getInfo();
+        for(String[] i : arr){
+            for(String j : i){
+                System.out.print(j+" : ");
+            }
+            System.out.println("");
+        }
         dbase.closeConnection();
         System.out.println("-!DONE!-");
         /*

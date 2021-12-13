@@ -42,24 +42,31 @@ public class dbase{
         }
     }
 
-    public static void getInfo(){
+    public static String[][] getInfo(){
         //predefined: url, uname, password, query
         String query = "SELECT * FROM customer";
         String data;
+        String [][] arr = new String[4][6];
+        String [] temp = new String[6];
+        int j=0;
         try {
             ResultSet result = statement.executeQuery(query);
             System.out.println("Received Info: ");
             while (result.next()) {                       //each row of data from DB
                 data = "";
                 for (int i = 1; i <= 6; i++) {
-                    data += result.getString(i) + ":";  // get data from row
+                    data += result.getString(i) + ":";    // get data from row
+                    temp[i-1]=result.getString(i);
                 }
+                arr[j] = temp;
+                j+=1;
                 System.out.println(data);
             }
         } catch(Exception e){
             System.out.println("ERROR: SOMETHING WRONG WITH EXECUTING QUERY!");
             e.printStackTrace();
         }
+        return arr;
     }
 
     /*
