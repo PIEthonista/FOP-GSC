@@ -37,15 +37,10 @@ public class Email2 {
             System.out.println("ERROR: Message not sent!");
             e.printStackTrace();
         }
-
     }
 
     //method called in send mail
-    private static Message prepareMessage(Session session,
-                                          String email,
-                                          String recepient,
-                                          String subject,
-                                          String text){
+    private static Message prepareMessage(Session session, String email, String recepient, String subject, String text){
         try {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(email));
@@ -57,7 +52,5 @@ public class Email2 {
             Logger.getLogger(Email2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-            
-}
-    
+    }
 }
