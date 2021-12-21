@@ -11,6 +11,8 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.Authenticator;
 import javax.mail.internet.AddressException;
 public class Email2 {
+    private static String EmailAcc = "gsc.customer.service.no.reply@gmail.com";
+    private static String Pswd = "SingleInUM";
 
     public static void sendMail(String recepient, String subject, String text) throws Exception {
         System.out.println("Preparing to send email");
@@ -19,10 +21,7 @@ public class Email2 {
         properties.put("mail.smtp.starttls.enable","true");
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
-        
-        String EmailAcc = "gsc.customer.service.no.reply@gmail.com";
-        String Pswd = "SingleInUM";
-        
+
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
             protected PasswordAuthentication getPasswordAuthentication(){

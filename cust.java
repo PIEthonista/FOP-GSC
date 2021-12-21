@@ -2,10 +2,13 @@
 import java.util.ArrayList;
 
 public class cust{
+    int id;
     String name;
-    String pswd;
     String email;
+    String uname;
+    String pswd;
     String phoneno;
+    /*
     ArrayList<String> shows = new ArrayList<String>();
     ArrayList<String> dates = new ArrayList<String>();
     ArrayList<String> times = new ArrayList<String>();
@@ -16,12 +19,16 @@ public class cust{
     ArrayList<String> trans_amount = new ArrayList<String>();
     ArrayList<String> trans_cardnum = new ArrayList<String>();
     ArrayList<String> trans_cardtype = new ArrayList<String>();
+    */
 
     // constructor 2 + 10 args
-    public cust (String name,
-                 String pswd,
+    public cust (int id,
+                 String name,
                  String email,
-                 String phoneno,
+                 String uname,
+                 String pswd,
+                 String phoneno
+                 /*
                  String [] shows,
                  String [] dates,
                  String [] times,
@@ -31,11 +38,15 @@ public class cust{
                  String [] trans_datetimes,
                  String [] trans_amount,
                  String [] trans_cardnum,
-                 String [] trans_cardtype){
+                 String [] trans_cardtype
+                 */){
+        this.id = id;
         this.name = name;
-        this.pswd = pswd;
         this.email = email;
+        this.uname = uname;
+        this.pswd = pswd;
         this.phoneno = phoneno;
+        /*
         for(String i : shows){
             this.shows.add(i);
         }
@@ -66,6 +77,8 @@ public class cust{
         for(String i : trans_cardtype){
             this.trans_cardtype.add(i);
         }
+        */
+
     }
 
     static void getshow(){
