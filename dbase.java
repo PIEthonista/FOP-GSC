@@ -33,7 +33,6 @@ public class dbase{
             e.printStackTrace();
         }
     }
-
     public static void closeConnection(){
         try{
             con.close();
@@ -45,15 +44,21 @@ public class dbase{
         }
     }
 
-    public static ArrayList<String> getEmailList(){
-        //predefined: url, uname, password, query
+    public static ArrayList<String> getCustomer(String uname){
         getConnection();
-        String query = "SELECT c_email FROM customer";
+        String query = "SELECT * FROM customer WHERE c_uname=\'"+uname+"\'";
         ArrayList<String> arr = new ArrayList<String>();
         try {
+            Statement statement = con.createStatement();
             ResultSet result = statement.executeQuery(query);
-            while (result.next()) {                       //each row of data from DB
+                    //each row of data from DB
+            while(result.next()){
                 arr.add(result.getString(1));
+                arr.add(result.getString(2));
+                arr.add(result.getString(3));
+                arr.add(result.getString(4));
+                arr.add(result.getString(5));
+                arr.add(result.getString(6));
             }
             System.out.println("Information retrieved successfully");
             closeConnection();
@@ -64,7 +69,6 @@ public class dbase{
         }
         return arr;
     }
-
     public static void addCustomer(String name, String email, String uname, String pswd, String phno){
         String query = "INSERT INTO customer(c_name, c_email, c_uname, c_pswd, c_phno) VALUES(?,?,?,?,?);";
         try {
@@ -161,6 +165,126 @@ public class dbase{
         }
     }
 
+    public static ArrayList<String> getStaff(String uname){
+        getConnection();
+        String query = "SELECT * FROM staff WHERE s_uname=\'"+uname+"\'";
+        ArrayList<String> arr = new ArrayList<String>();
+        try {
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            //each row of data from DB
+            while(result.next()){
+                arr.add(result.getString(1));
+                arr.add(result.getString(2));
+                arr.add(result.getString(3));
+                arr.add(result.getString(4));
+                arr.add(result.getString(5));
+                arr.add(result.getString(6));
+            }
+            System.out.println("Information retrieved successfully");
+            closeConnection();
+        } catch(Exception e){
+            closeConnection();
+            System.out.println("ERROR: QUERY: SELECT");
+            e.printStackTrace();
+        }
+        return arr;
+    }
+    public static void addStaff(String name, String email, String uname, String pswd, String phno){
+        String query = "INSERT INTO staff(s_name, s_email, s_uname, s_pswd, s_phno) VALUES(?,?,?,?,?);";
+        try {
+            getConnection();
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, name);
+            statement.setString(2, email);
+            statement.setString(3, uname);
+            statement.setString(4, pswd);
+            statement.setString(5, phno);
+            int rowsInserted = statement.executeUpdate();
+            if (rowsInserted > 0) {
+                System.out.println("A new staff was INSERTED successfully!");
+            }
+            closeConnection();
+        } catch(Exception e) {
+            closeConnection();
+            System.out.println("ERROR: QUERY: INSERT");
+            e.printStackTrace();
+        }
+    }
+    public static void delStaff(String uname){
+        String query = "DELETE FROM staff WHERE s_uname=?";
+        try {
+            getConnection();
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, uname);
+            int rowsDeleted = statement.executeUpdate();
+            if( rowsDeleted > 0) {
+                System.out.println("An old staff was DELETED successfully!");
+            }
+            closeConnection();
+        } catch(Exception e) {
+            closeConnection();
+            System.out.println("ERROR: QUERY: DELETE");
+            e.printStackTrace();
+        }
+    }
+    public static void updStaff(String uname, int option, String updateValue){
+        String opt="";
+        if(option<1 || option>5){
+            System.out.println("ERROR: Option "+option+" out of bound 1-5");
+        } else {
+            switch (option){
+                case 1:
+                    opt="s_name";
+                    break;
+                case 2:
+                    opt="s_email";
+                    break;
+                case 3:
+                    opt="s_uname";
+                    break;
+                case 4:
+                    opt="s_pswd";
+                    break;
+                case 5:
+                    opt="s_phno";
+            }
+            try {
+                getConnection();
+                String query = "UPDATE staff SET "+opt+"=? WHERE s_uname=?";
+                PreparedStatement statement = con.prepareStatement(query);
+                statement.setString(1, updateValue);
+                statement.setString(2, uname);
+                int rowsDeleted = statement.executeUpdate();
+                if( rowsDeleted > 0) {
+                    System.out.println("An old staff was UPDATED successfully!");
+                }
+                closeConnection();
+            } catch(Exception e) {
+                closeConnection();
+                System.out.println("ERROR: QUERY: UPDATE");
+                e.printStackTrace();
+            }
+        }
+    }
+    public static void updStaff(String uname, String option, String updateValue){
+        String query = "UPDATE staff SET "+option+"=? WHERE s_uname=?";
+        try {
+            getConnection();
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, updateValue);
+            statement.setString(2, uname);
+            int rowsDeleted = statement.executeUpdate();
+            if( rowsDeleted > 0) {
+                System.out.println("An old staff was UPDATED successfully!");
+            }
+            closeConnection();
+        } catch(Exception e) {
+            closeConnection();
+            System.out.println("ERROR: QUERY: UPDATE");
+            e.printStackTrace();
+        }
+    }
     /*
     static void addmov(){}
     static void getmov(){}
