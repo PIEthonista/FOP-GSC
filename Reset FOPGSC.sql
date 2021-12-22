@@ -2,9 +2,12 @@
 This script will RESET the whole database to its initial form.
 RUN WITH CAUTION!
 */
-
+/* --run this line if this is your first time setting up the DB on your PC
+CREATE DATABASE FOPGSC;
+*/
 USE FOPGSC;
 
+-- don't run this DROP section if this is your first time setting up the DB on your PC
 DROP TABLE customer;
 DROP TABLE history;
 DROP TABLE staff;

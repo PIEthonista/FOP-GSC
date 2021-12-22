@@ -14,7 +14,8 @@ public class dbase{
     static Statement statement;
     private static String uname = "root";
     private static String password = "J0hnLegend";
-    private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
+    private static String url = "jdbc:mysql://localhost:3306/FOPGSC";
+    //private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
     //                                        ^Endpoint                                           ^Port^DB
     // Enabled inbound rules : ALL, IPv4 IPv6
 
