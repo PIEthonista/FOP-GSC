@@ -13,12 +13,10 @@ public class FP {
         return path;
     }
 
-    public static boolean deleteFile(String relativeFileNamePath){
+    public static boolean delFile(String relativeFileNamePath){
         boolean status=true;
         try {
-            String loc = ((System.getProperty("os.name")).toLowerCase().charAt(0) == 'w') ? (".\\" + relativeFileNamePath) : ("./" + relativeFileNamePath);
-            //more on relative path: https://www.delftstack.com/howto/java/java-relative-path/
-            File f2 = new File(new File(loc).getAbsolutePath());
+            File f2 = new File(getPath(relativeFileNamePath));
             if(f2.delete()){}else{status=false;}
         }catch(Exception e){
             status=false;

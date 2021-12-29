@@ -9,15 +9,15 @@ public class Main{
         dbase.delCustomer("yx123");
         dbase.updCustomer("Pyrexia02", "c_uname", "NewUsername");
         */
-        System.out.println(dbase.getFNB());
+        System.out.println(dbase.getAllFNB());
         System.out.println(dbase.delFNB("Coca-Cola"));
         dbase.updFNB("Potato Chips", "f_price", "100");
         dbase.addFNB("Ice Cream", "chill out with our brand new ice cream!", 34);
-        System.out.println(dbase.getFNB());
+        System.out.println(dbase.getAllFNB());
         try{
             QRcode.generateQRcode("HAHAHAHAHAA");
             Email2.sendMessage("gohyixian456@gmail.com", false);
-            FP.deleteFile("qr.png");
+            FP.delFile("qr.png");
         } catch(Exception e){
             e.printStackTrace();
         }
