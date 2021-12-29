@@ -430,6 +430,47 @@ public class dbase{
         }
         return rowsUpdated;
     }
+
+    //history
+    public static ArrayList<ArrayList<String>> getHistory(String uname){
+        getConnection();
+        String query = "SELECT * FROM history WHERE h_uname=\'"+uname+"\'";
+        ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
+        try {
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            ResultSetMetaData rsmd = result.getMetaData();
+            int col = rsmd.getColumnCount();
+            //each row of data from DB
+            while(result.next()){
+                ArrayList<String> temp = new ArrayList<String>();
+                temp.add(result.getString(1));
+                temp.add(result.getString(2));
+                temp.add(result.getString(3));
+                temp.add(result.getString(4));
+                temp.add(result.getString(5));
+                temp.add(result.getString(6));
+                temp.add(result.getString(7));
+                temp.add(result.getString(8));
+                temp.add(result.getString(9));
+                temp.add(result.getString(10));
+                temp.add(result.getString(11));
+                temp.add(result.getString(12));
+                temp.add(result.getString(13));
+                temp.add(result.getString(14));
+                temp.add(result.getString(15));
+                arr.add(temp);
+            }
+            System.out.println("Information retrieved successfully");
+            closeConnection();
+        } catch(Exception e){
+            closeConnection();
+            System.out.println("ERROR: QUERY: SELECT");
+            e.printStackTrace();
+        }
+        return arr;
+    }
+    public static int addHistory(String uname, )
     /*
     static void addmov(){}
     static void getmov(){}
