@@ -1,8 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
-package email2;
 import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,44 +11,46 @@ import javax.mail.internet.MimeMessage;
 import javax.mail.Authenticator;
 import javax.mail.internet.AddressException;
 public class Email2 {
+    private static String EmailAcc = "gsc.customer.service.no.reply@gmail.com";
+    private static String Pswd = "SingleInUM";
 
-    public static void main(String recepient) throws Exception {
+    public static void sendMail(String recepient, String subject, String text) throws Exception {
         System.out.println("Preparing to send email");
         Properties properties = new Properties();
         properties.put("mail.smtp.auth","true");
         properties.put("mail.smtp.starttls.enable","true");
         properties.put("mail.smtp.host","smtp.gmail.com");
         properties.put("mail.smtp.port","587");
-        
-        String myAccountEmail = "U2102820@siswa.um.edu.my";
-        String password = "Jiayu_02";
-        
+
         Session session = Session.getInstance(properties, new Authenticator(){
             @Override
             protected PasswordAuthentication getPasswordAuthentication(){
-                return new PasswordAuthentication(myAccountEmail,password);
+                return new PasswordAuthentication(EmailAcc, Pswd);
             }
         });
     
-        Message message = prepareMessage(session, myAccountEmail, recepient);
-        
-        Transport.send(message);
-        System.out.println("Message sent successfully");
+        Message message = prepareMessage(session, EmailAcc, recepient, subject, text);
+        try{
+            Transport.send(message);
+            System.out.println("Message sent successfully");
+        } catch (Exception e){
+            System.out.println("ERROR: Message not sent!");
+            e.printStackTrace();
+        }
     }
-    
-    private static Message prepareMessage(Session session, String myAccountEmail, String recepient){
+
+    //method called in send mail
+    private static Message prepareMessage(Session session, String email, String recepient, String subject, String text){
         try {
             Message message = new MimeMessage(session);
-            message.setFrom(new InternetAddress(myAccountEmail));
+            message.setFrom(new InternetAddress(email));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Hacker message alert!");
-            message.setText("This is the message");
+            message.setSubject(subject);   //subject here
+            message.setText(text);         //text here
             return message;
         } catch (Exception ex) {
             Logger.getLogger(Email2.class.getName()).log(Level.SEVERE, null, ex);
         }
         return null;
-            
-}
-    
+    }
 }
