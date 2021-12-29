@@ -30,16 +30,16 @@ MatrixToImageWriter.writeToFile(matrix, path.substring(path.lastIndexOf('.') + 1
 public static void main(String args[]) throws WriterException, IOException, NotFoundException  
 {  
 //data that we want to store in the QR code  
-String str= "Single in UM the best";  
+String str= "Dumb fuck you really thought you got gift? \nJkjk don't be like yixian pls";  
 //path where we want to get QR Code  
-String path = "C:\\Users\\asus\\Desktop\\qr-code-128.png";  
+String path = "C:\\Users\\asus\\Desktop\\qrcode.png";  
 //Encoding charset to be used  
 String charset = "UTF-8";  
 Map<EncodeHintType, ErrorCorrectionLevel> hashMap = new HashMap<EncodeHintType, ErrorCorrectionLevel>();  
 //generates QR code with Low level(L) error correction capability  
 hashMap.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.L);  
 //invoking the user-defined method that creates the QR code  
-generateQRcode(str, path, charset, hashMap, 200, 200);//increase or decrease height and width accodingly   
+generateQRcode(str, path, charset, hashMap, 300, 300);//increase or decrease height and width accodingly   
 //prints if the QR code is generated   
 System.out.println("QR Code created successfully.");  
 }  
