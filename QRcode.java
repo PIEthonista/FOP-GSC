@@ -13,21 +13,19 @@ public class QRcode {
 
 
 //static function that creates QR Code
-    public static int generateQRcode(String data) throws WriterException, IOException {
+    public static boolean generateQRcode(String data) throws WriterException, IOException {
         //the BitMatrix class represents the 2D matrix of bits
         //MultiFormatWriter is a factory class that finds the appropriate Writer subclass for the BarcodeFormat requested and encodes the barcode with the supplied contents.
         String charset="UTF-8";
         // h & w (square)
         int l=300;
-        String loc = ((System.getProperty("os.name")).toLowerCase().charAt(0)=='w') ? ".\\qr.png" : "./qr.png";
-        int status=0;
+        boolean status=true;
         try {
-            File f = new File(loc);
-            String path = f.getAbsolutePath();
+            String path = FP.getPath("qr.png");
             BitMatrix matrix = new MultiFormatWriter().encode(new String(data.getBytes(charset), charset), BarcodeFormat.QR_CODE, l, l);
             MatrixToImageWriter.writeToFile(matrix, path.substring(path.lastIndexOf('.') + 1), new File(path));
         } catch(Exception e){
-            status=-1;
+            status=false;
             e.printStackTrace();
         }
         return status;

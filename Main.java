@@ -16,7 +16,8 @@ public class Main{
         System.out.println(dbase.getFNB());
         try{
             QRcode.generateQRcode("HAHAHAHAHAA");
-            Email2.sendMessage("gohyixian456@gmail.com");
+            Email2.sendMessage("gohyixian456@gmail.com", false);
+            FP.deleteFile("qr.png");
         } catch(Exception e){
             e.printStackTrace();
         }
