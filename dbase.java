@@ -470,7 +470,7 @@ public class dbase{
         }
         return arr;
     }
-    public static int addHistory(String uname, )
+    public static void addHistory(String uname){}
     /*
     static void addmov(){}
     static void getmov(){}

@@ -14,6 +14,13 @@ public class Main{
         dbase.updFNB("Potato Chips", "f_price", "100");
         dbase.addFNB("Ice Cream", "chill out with our brand new ice cream!", 34);
         System.out.println(dbase.getFNB());
+        try{
+            QRcode.generateQRcode("HAHAHAHAHAA");
+            Email2.sendMessage("gohyixian456@gmail.com");
+        } catch(Exception e){
+            e.printStackTrace();
+        }
+
 
 
         System.out.println("-!DONE!-");
