@@ -17,11 +17,7 @@ public class Main{
             System.out.println("");
 
         }
-        System.out.println(dbase.getDTL_hallmin("05"));
 
-
-
-        System.out.println("-!DONE!-");
     }
 
     public static void sequence(){}
