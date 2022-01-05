@@ -870,7 +870,7 @@ public class dbase{
             e.printStackTrace();
         }
         return max;
-    } // returns All info related to that occurrence (row)
+    } // DECICATED TO the update hall capacity function
     public static int addDTL_all(String m_title, ArrayList<ArrayList<String>> arr){
         int rowsInserted=0;
         try {
