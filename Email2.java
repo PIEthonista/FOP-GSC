@@ -60,7 +60,7 @@ public class Email2 {
             message.setSubject("Congratulations!");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("This is the movie ticket as your gift. Please scan it! \nHello");
+            messageBodyPart.setText("Thank you for purchasing with us! Here's your ticket! Scan it for more info!");
 
             MimeBodyPart messageBodyPart1 = new MimeBodyPart();
             if(sendImageOption){

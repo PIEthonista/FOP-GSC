@@ -2,12 +2,12 @@
 This script will RESET the whole database to its initial form.
 RUN WITH CAUTION!
 */
-/* --run this line if this is your first time setting up the DB on your PC
+/*
 CREATE DATABASE FOPGSC;
 */
 USE FOPGSC;
 
--- don't run this DROP section if this is your first time setting up the DB on your PC
+
 DROP TABLE customer;
 DROP TABLE history;
 DROP TABLE staff;
@@ -33,7 +33,7 @@ CREATE TABLE history(
     h_date VARCHAR(10) NOT NULL,
     h_time VARCHAR(5) NOT NULL,
     h_hallno VARCHAR(3) NOT NULL,
-    h_seats VARCHAR(100) NOT NULL,
+    h_seats VARCHAR(640) NOT NULL,
     adult INT NOT NULL,
     student INT NOT NULL,
     children INT NOT NULL,
@@ -262,12 +262,52 @@ INSERT INTO customer(c_name, c_email, c_uname, c_pswd, c_phno) VALUES('Tan Hui X
 
 /* staff */
 INSERT INTO staff VALUES(1,'Ang Tan Fong', 'angtf@gmail.com', 'AngTF', 'wasd', '0123456789');
+INSERT INTO staff VALUES(2,'Root', 'no_email', 'root', 'qwerty', '0000000000');
 
 /* fnb */
 INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Popcorn','Delicious Caramel Popcorns!',10);
-INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Coca-Cola','Some gas drinks to spice up your day!',2);
-INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Potato Chips','Chrunchy chips for the go!',6);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Chips','Chrunchy chips for the go!',6);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Ice Cream', 'Some chill ice cream to send your back freezing!', 5);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Hotdogs', 'Grilled cheesy hotdogs warms you up', 10);
 
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Iced Lemon Tea','Some gas drinks to spice up your day!',3);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Orange Juice','Some gas drinks to spice up your day!',3);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Hundred Plus','Some gas drinks to spice up your day!',3);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Coca-Cola','Some gas drinks to spice up your day!',3);
+INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Sprite', 'Some gas drinks to spice up your day!', 3);
+
+
+/* history */
+INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum)
+VALUES("Pyrexia02", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "i10;i11;i12;i13", 3, 1, 0, "1;1;8;8;8;5", "2021-12-10", 134, "credit", "1435-4956-0984-2365");
+INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum)
+VALUES("rony456", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "g14;g15;h14;h15", 4, 0, 0, "1;4;5;5;6", "2021-12-08", 141, "debit", "9087-4562-1328-5336");
+
+/* movies */
+INSERT INTO movies(m_title, m_reldate, synopsis, adultp, studentp, childrenp)
+VALUES("Spider-Man: No Way Home", "2012-12-17", "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.", 28, 18, 20);
+
+/* casts */
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Tom Holland", "Peter Parker");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Zendaya", "Michelle MJ Jones");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Alfred Molina", "Dr. Otto Octavius");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Jacob Batalon", "Ned Leeds");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Jamie Foxx", "Electro");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Marisa Tomei", "Aunt May");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Tony Revolori", "Flash Thompson");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Benedict Cumberbatch", "Norman Osborn");
+INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Benedict Wong", "Wong");
+
+
+/* datetimeloc *//*                                                    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32  */
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, i04, i05, i10, i11, i12, i13, j05, j06, j10, j11, h04, h05, h06, h07, h08, h11, h12, f09, f10, f11, g14, g15, h14, h15, h01, h02, h03, e04, e05, e07, d12, d13) VALUES("Spider-Man: No Way Home", "2021-12-17", "08:00", "01", 80, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, j05, j06, j07, i06, i10, i11, i12, i13, j10, j11, j12, j13, i14, j14, j15) VALUES("Spider-Man: No Way Home", "2021-12-17", "10:00", "05", 80, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "12:00", "13", 80);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "14:00", "09", 80);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "16:00", "07", 80);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "20:00", "01", 80);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "22:00", "02", 80);
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "24:00", "06", 80);
 /*
 SELECT * FROM information_schema.tables WHERE TABLE_SCHEMA='FOPGSC';
 

@@ -838,6 +838,39 @@ public class dbase{
         }
         return arr;
     } // returns All info related to that occurrence (row)
+    public static int getDTL_hallmin(String m_hallno){
+        String query = "SELECT * FROM datetimeloc WHERE m_hallno=\'"+m_hallno+"\'";
+        ArrayList<Integer> arr = new ArrayList<Integer>();
+        int max=0;
+        try {
+            getConnection();
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            ResultSetMetaData rsmd = result.getMetaData();
+            //each row of data from DB
+            while(result.next()){
+                int row=0;
+                for(int i=1; i<=160; i++){
+                    if(Integer.parseInt(result.getString(i+6))>=1){
+                        row++;
+                    }
+                }
+                arr.add(row);
+            }
+            for(int i=0; i<arr.size(); i++){
+                if(arr.get(i)>max){
+                    max=arr.get(i);
+                }
+            }
+            System.out.println("Information retrieved successfully");
+            closeConnection();
+        } catch(Exception e){
+            closeConnection();
+            System.out.println("ERROR: QUERY: SELECT");
+            e.printStackTrace();
+        }
+        return max;
+    } // returns All info related to that occurrence (row)
     public static int addDTL_all(String m_title, ArrayList<ArrayList<String>> arr){
         int rowsInserted=0;
         try {
