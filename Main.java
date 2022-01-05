@@ -7,11 +7,17 @@ public class Main{
         /*
         this line is added in branch bla
         */
-        System.out.println(dbase.getDTL_hallmin("05"));
 
+        //this section is added in branch testing-01
+        ArrayList<ArrayList<String>> arr = dbase.getAllFNB();
+        for (ArrayList<String> i : arr){
+            for(String j : i){
+                System.out.print(j+" : ");
+            }
+            System.out.println("");
 
+        }
 
-        System.out.println("-!DONE!-");
     }
 
     public static void sequence(){}
