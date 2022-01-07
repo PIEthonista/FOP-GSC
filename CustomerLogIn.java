@@ -107,10 +107,13 @@ public class CustomerLogIn implements ActionListener {
         if (e.getSource() == myButton2){
             String username = userIDField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
-            ArrayList<String> arr = new ArrayList<String>();
+            ArrayList<String> arr;
             try{
                arr = dbase.getCustomer(username);
-               if (!password.equals(arr.get(4))) {
+               if (arr.size()==0){
+                   frame.dispose();
+                   new CustomerLogIn(false, 2);
+               } else if (!password.equals(arr.get(4))) {
                    frame.dispose();
                    new CustomerLogIn(false, 1);
                 }else{
@@ -119,8 +122,7 @@ public class CustomerLogIn implements ActionListener {
                     new BookandCancelMovie();
                 }
             } catch (Exception ex){
-                frame.dispose();
-                new CustomerLogIn(false, 2);
+                ex.printStackTrace();
             }
         }
     }

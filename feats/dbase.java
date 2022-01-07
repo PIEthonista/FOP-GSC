@@ -15,7 +15,7 @@ public class dbase{
     private static String uname = "root";
 
     // CHANGE TO YOUR LOCAL MySQL Password
-    private static String password = "Laurony0793$";
+    private static String password = "J0hnLegend";
 
     private static String url = "jdbc:mysql://localhost:3306/FOPGSC";
     //private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
