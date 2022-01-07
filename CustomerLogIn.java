@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import feats.*;
 
 public class CustomerLogIn implements ActionListener {
-    ImageIcon icon = new ImageIcon("C:\\Users\\RONYLAU123\\IdeaProjects\\RONYLAU\\src\\ExampleGSC\\GSC.png");
+    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
     JFrame frame = new JFrame("CUSTOMER LOG IN PAGE");
     JLabel label = new JLabel();
     JLabel userIDLabel= new JLabel("UserName: ");
