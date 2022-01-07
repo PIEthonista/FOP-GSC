@@ -85,7 +85,6 @@ public class CustomerLogIn implements ActionListener {
         }
 
         if (e.getSource() == myButton2){
-            System.out.println(FP.getPath("GSC.png"));
             String username = userIDField.getText();
             String password = String.valueOf(userPasswordField.getPassword());
             ArrayList<String> arr = new ArrayList<String>();
@@ -94,9 +93,11 @@ public class CustomerLogIn implements ActionListener {
                 if(!username.equals(arr.get(3))){
                     messageLabel.setForeground(Color.RED);
                     messageLabel.setText("Invalid username!!!");
+                    new CustomerLogIn();
                 }else if (!password.equals(arr.get(4))) {
                     messageLabel.setForeground(Color.RED);
                     messageLabel.setText("Invalid password!!!");
+                    new CustomerLogIn();
                 }else{
                     frame.dispose();
                     new BookandCancelMovie();
