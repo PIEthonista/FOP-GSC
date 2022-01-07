@@ -2,16 +2,18 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import java.util.ArrayList;
 import feats.*;
 
 public class CustomerLogIn implements ActionListener {
-    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
+    ImageIcon icon = new ImageIcon("C:\\Users\\RONYLAU123\\IdeaProjects\\RONYLAU\\src\\ExampleGSC\\GSC.png");
     JFrame frame = new JFrame("CUSTOMER LOG IN PAGE");
     JLabel label = new JLabel();
-    JLabel userIDLabel= new JLabel("UserID: ");
+    JLabel userIDLabel= new JLabel("UserName: ");
     JLabel userPasswordLabel = new JLabel("Password:");
+    JLabel messageLabel = new JLabel();
     JTextField userIDField= new JTextField();
     JPasswordField userPasswordField = new JPasswordField();
     JButton myButton1 = new JButton("Back");
@@ -40,6 +42,9 @@ public class CustomerLogIn implements ActionListener {
         userPasswordField.setBounds(200,300,450,30);
         userPasswordField.setFont(new Font(null,Font.PLAIN,20));
 
+        messageLabel.setBounds(100,600,300,25);
+        messageLabel.setFont(new Font(null,Font.ITALIC,20   ));
+
         myButton1.setBounds(0,0,200,40);
         myButton1.setVerticalAlignment(JLabel.CENTER);
         myButton1.setBackground(new Color(220,120,0));
@@ -62,6 +67,7 @@ public class CustomerLogIn implements ActionListener {
         frame.add(userPasswordLabel);
         frame.add(userPasswordField);
         frame.add(userIDLabel);
+        frame.add(messageLabel);
         frame.add(label);
         frame.setIconImage(icon.getImage());
         frame.add(label);
@@ -77,9 +83,32 @@ public class CustomerLogIn implements ActionListener {
             frame.dispose();
             new CoverPage();
         }
+
         if (e.getSource() == myButton2){
-            frame.dispose();
-            new BookandCancelMovie();
+            System.out.println(FP.getPath("GSC.png"));
+            String username = userIDField.getText();
+            String password = String.valueOf(userPasswordField.getPassword());
+            ArrayList<String> arr = new ArrayList<String>();
+            try{
+                arr = dbase.getCustomer(username);
+                if(!username.equals(arr.get(3))){
+                    messageLabel.setForeground(Color.RED);
+                    messageLabel.setText("Invalid username!!!");
+                }else if (!password.equals(arr.get(4))) {
+                    messageLabel.setForeground(Color.RED);
+                    messageLabel.setText("Invalid password!!!");
+                }else{
+                    frame.dispose();
+                    new BookandCancelMovie();
+                }
+            } catch (Exception ex){
+                ex.printStackTrace();
+                messageLabel.setForeground(Color.RED);
+                messageLabel.setText("Invalid username!!!");
+                new CustomerLogIn();
+            }
         }
+
+
     }
 }
