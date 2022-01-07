@@ -60,7 +60,7 @@ public class BookandCancelMovie implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== myButton1){
             frame.dispose();
-            new CustomerLogIn();
+            new CustomerLogIn(true, 0);
         }
         if (e.getSource()==myButton2){
             frame.dispose();
