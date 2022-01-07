@@ -1,0 +1,99 @@
+If you are using IDE:         ADD THE 'mysql-connector-java-8.0.27.jar' TO THE DEPENDENCIES SECTION
+                              Intellij - https://www.youtube.com/watch?v=zGnL-LIFT9Y (2:31 - 3:31)
+                              Netbeans - https://www.youtube.com/watch?v=XYLhgOpGfps (5:10 - 6:10)
+                              Run as usual.
+
+
+If you are running from CLI:  ADD THE 'mysql-connector-java-8.0.27.jar' TO THE SAME DIR AS YOUR JAVA FILE
+                              RUN VIA CLI THE BELOW:
+
+                              java -cp mysql-connector-java-8.0.27.jar <JAVA_FILE_NAME>.java
+
+
+Clarification:
+With the -cp argument you provide the classpath i.e. path(s) to additional classes
+or libraries that your program may require when being compiled or run. With -jar
+you specify the executable JAR file that you want to run.
+
+
+Some sample JDBC Code:
+//predefined: url, uname, password, query
+con = DriverManager.getConnection(url, uname, password);
+statement = con.createStatement();
+ResultSet result = statement.executeQuery(query);
+while(result.next()){                       //each row of data from DB
+    String data = "";
+    for(int i=1; i<=8; i++){
+        data += result.getString(i) + ":";  // get data from row
+    }
+    System.out.println(data);
+}
+
+
+
+
+CSV BACKUP CODE:
+    static String[] getData(int i) throws Exception{   // =========Used for printing title when given number
+        // No,Title,ReleaseDate,ShowDate,Actor1:Character1|Actor2:Charater2... ,synopsis
+        File f = new File("./movi.csv");
+        Scanner sc = new Scanner(new File(f.getAbsolutePath()));
+        // "/Users/gohyixian/Documents/jvprojects/GSC/movi.csv"
+        sc.useDelimiter(",");   //sets the delimiter pattern
+        String [] data = {"No", "Title", "RelDate", "ShowDate", "Casts", "Synopsis"};
+        //                 1     2        3          4           5        6
+        int count = 1;
+        while(sc.hasNextLine()){
+            String str = sc.nextLine();
+            if (count==i){
+                data[0]=dbase.getInfo(str, 1, ',');
+                data[1]=dbase.getInfo(str, 2, ',');
+                data[2]=dbase.getInfo(str, 3, ',');
+                data[3]=dbase.getInfo(str, 4, ',');
+                data[4]=dbase.getInfo(str, 5, ',');
+                data[5]=dbase.getInfo(str, 6, ',');
+            }
+            count+=1;
+        }
+        sc.close();
+        return data;
+    }
+
+
+    static String getInfo(String str, int j, char sep) throws Exception {
+        ArrayList<String> arr = new ArrayList<String>();
+        int st=0;
+        int en=0;
+        int c=1;
+        for (int i=0; i<str.length(); i++){
+            if (i==(str.length()-1)){
+                arr.add(str.substring((st+1), i) + str.charAt(i));
+                break;
+            }
+            if (str.charAt(i)==sep){
+                en=i;
+                if(c!=1){
+                    st+=1;
+                }
+                arr.add(str.substring(st, en));
+                st=en;
+                c++;
+            }
+        }
+        return arr.get(j-1);
+        /*  //Doesn't work why??
+        if (i>5){
+            throw new Exception("ERROR: range 1-5 only.");
+        }
+        Pattern pat = Pattern.compile("[0-9]++,([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),([A-Za-z0-9 ][\\_\'-]++),");
+                                              // paste ,([A-za-z0-9 -+=_~!@#$%^&8<>./\']+?) after adding synopsis
+        System.out.println("Hi");
+        Matcher mat = pat.matcher(str);
+
+        return mat.group(i);
+
+        if(mat.find()){
+            return mat.group(i);
+        } else {
+            return "N/A";
+        }
+        */
