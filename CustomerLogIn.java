@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import feats.*;
 
 public class CustomerLogIn implements ActionListener {
-    ImageIcon icon = new ImageIcon("C:\\Users\\RONYLAU123\\IdeaProjects\\RONYLAU\\src\\ExampleGSC\\GSC.png");
+    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
     JFrame frame = new JFrame("CUSTOMER LOG IN PAGE");
     JLabel label = new JLabel();
     JLabel userIDLabel= new JLabel("UserName: ");
@@ -109,22 +109,19 @@ public class CustomerLogIn implements ActionListener {
             String password = String.valueOf(userPasswordField.getPassword());
             ArrayList<String> arr = new ArrayList<String>();
             try{
-                arr = dbase.getCustomer(username);
+               arr = dbase.getCustomer(username);
                if (!password.equals(arr.get(4))) {
                    frame.dispose();
                    new CustomerLogIn(false, 1);
                 }else{
                     frame.dispose();
+                    cust c1 = new cust(arr.get(0), arr.get(1), arr.get(2), arr.get(3), arr.get(4), arr.get(5));
                     new BookandCancelMovie();
                 }
             } catch (Exception ex){
                 frame.dispose();
                 new CustomerLogIn(false, 2);
             }
-        }
-        if (e.getSource() == myButton3){
-            userIDField.setText("");
-            userPasswordField.setText("");
         }
     }
 }

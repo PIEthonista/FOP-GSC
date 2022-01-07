@@ -1,102 +1,60 @@
-// customer
+// customer class to store customer related info throughout the process
 package feats;
 
 import java.util.ArrayList;
 
 public class cust{
-    int id;
-    String name;
-    String email;
-    String uname;
-    String pswd;
-    String phoneno;
-    /*
-    ArrayList<String> shows = new ArrayList<String>();
-    ArrayList<String> dates = new ArrayList<String>();
-    ArrayList<String> times = new ArrayList<String>();
-    ArrayList<String> seats = new ArrayList<String>();
-    ArrayList<String> food = new ArrayList<String>();
-    ArrayList<String> bev = new ArrayList<String>();
-    ArrayList<String> trans_datetimes = new ArrayList<String>();
-    ArrayList<String> trans_amount = new ArrayList<String>();
-    ArrayList<String> trans_cardnum = new ArrayList<String>();
-    ArrayList<String> trans_cardtype = new ArrayList<String>();
-    */
+    public static String id;
+    public static String name;
+    public static String email;
+    public static String uname;
+    public static String pswd;
+    public static String phoneno;
 
-    // constructor 2 + 10 args
-    public cust (int id,
-                 String name,
-                 String email,
-                 String uname,
-                 String pswd,
-                 String phoneno
-                 /*
-                 String [] shows,
-                 String [] dates,
-                 String [] times,
-                 String [] seats,
-                 String [] food,
-                 String [] bev,
-                 String [] trans_datetimes,
-                 String [] trans_amount,
-                 String [] trans_cardnum,
-                 String [] trans_cardtype
-                 */){
-        this.id = id;
-        this.name = name;
-        this.email = email;
-        this.uname = uname;
-        this.pswd = pswd;
-        this.phoneno = phoneno;
-        /*
-        for(String i : shows){
-            this.shows.add(i);
-        }
-        for(String i : dates){
-            this.dates.add(i);
-        }
-        for(String i : times){
-            this.times.add(i);
-        }
-        for(String i : seats){
-            this.seats.add(i);
-        }
-        for(String i : food){
-            this.food.add(i);
-        }
-        for(String i : bev){
-            this.bev.add(i);
-        }
-        for(String i : trans_datetimes){
-            this.trans_datetimes.add(i);
-        }
-        for(String i : trans_amount){
-            this.trans_amount.add(i);
-        }
-        for(String i : trans_cardnum){
-            this.trans_cardnum.add(i);
-        }
-        for(String i : trans_cardtype){
-            this.trans_cardtype.add(i);
-        }
-        */
+    public static String title;        // movie title
+    public static String date;         // YYYY-MM-DD
+    public static String time;         // 18:30
+    public static String hallno;       // 01
+    public static ArrayList<String> seats = new ArrayList<String>();  // i01,i05,i04
+    public static int adult;           // 2
+    public static int student;         // 0
+    public static int children;        // 1
+    public static ArrayList<String> f_id = new ArrayList<String>();   // 1,1,2,4
+    public static String t_date;       // YYYY-MM-DD
+    public static double t_amount;     // 66
+    public static String t_cardtype;   // credit/debit
+    public static String t_cardnum;    // 0000-0000-0000-0000
 
+    // basic constructor (actually object not required, just summarise basic params to one method)
+    public cust (String ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){
+        id = ID;
+        name = Name;
+        email = Email;
+        uname = Uname;
+        pswd = Pswd;
+        phoneno = PhoneNo;
     }
 
-    static void getshow(){
-        // read & display available movies, provide +info on request
+    // RESET cust obj's attributes to null/0
+    public static void RESET(){
+        id=null;
+        name=null;
+        email=null;
+        uname=null;
+        pswd=null;
+        phoneno=null;
+        title=null;
+        date=null;
+        time=null;
+        hallno=null;
+        seats.clear();
+        adult=0;
+        student=0;
+        children=0;
+        f_id.clear();
+        t_date=null;
+        t_amount=0;
+        t_cardtype=null;
+        t_cardnum=null;
     }
-    static void book(){
-        // select movie, day, time, seat
-    }
-    static void food(){
-        // display food & bev options
-    }
-    static void pay(){
-        // display ttl expense, accept credit/debit
-    }
-    static void ticket(){
-        // display ticket
-    }
-    static void sendmail(){}
 }
