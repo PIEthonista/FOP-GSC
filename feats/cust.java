@@ -1,4 +1,4 @@
-// customer
+// customer class to store customer related info throughout the process
 package feats;
 
 import java.util.ArrayList;

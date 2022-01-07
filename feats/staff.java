@@ -1,4 +1,4 @@
-// staff
+// staff class to store staff related info throughout the process
 package feats;
 
 import java.util.ArrayList;

@@ -109,7 +109,5 @@ public class CustomerLogIn implements ActionListener {
                 new CustomerLogIn();
             }
         }
-
-
     }
 }
