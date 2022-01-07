@@ -48,10 +48,10 @@ CREATE TABLE history(
 CREATE TABLE staff(
     s_id INT AUTO_INCREMENT,
     s_name VARCHAR(100) NOT NULL,
-    s_email VARCHAR(50) UNIQUE,
+    s_email VARCHAR(50) NOT NULL,
     s_uname VARCHAR(30) UNIQUE,
     s_pswd VARCHAR(30) NOT NULL,
-    s_phno VARCHAR(15) UNIQUE,
+    s_phno VARCHAR(15) NOT NULL,
     PRIMARY KEY(s_id)
 );
 
@@ -314,3 +314,4 @@ SELECT * FROM information_schema.tables WHERE TABLE_SCHEMA='FOPGSC';
 DELETE FROM fnb WHERE f_name='Coca-Cola';
 SELECT * FROM fnb;
 */
+

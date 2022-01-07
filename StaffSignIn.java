@@ -20,11 +20,12 @@ public class StaffSignIn implements ActionListener {
     JTextField emailLabelField= new JTextField();
     JTextField staffIDField= new JTextField();
     JTextField phoneLabelField= new JTextField();
+    JLabel messageLabel = new JLabel();
     JPasswordField userPasswordField = new JPasswordField();
     JButton myButton1 = new JButton("Back ");
     JButton myButton2 = new JButton("Create Account");
 
-    StaffSignIn() {
+    StaffSignIn(Boolean tf) {
 
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
@@ -70,6 +71,14 @@ public class StaffSignIn implements ActionListener {
         userPasswordField.setBounds(200,500,450,30);
         userPasswordField.setFont(new Font(null,Font.PLAIN,20));
 
+        //error label
+        if(!tf){
+            messageLabel.setBounds(200,270,300,25);
+            messageLabel.setFont(new Font(null,Font.ITALIC,20   ));
+            messageLabel.setForeground(Color.RED);
+            messageLabel.setText("Sorry, Username already taken.");
+        }
+
         myButton1.setBounds(0,0,200,40);
         myButton1.setVerticalAlignment(JLabel.CENTER);
         myButton1.setBackground(new Color(220,120,0));
@@ -98,6 +107,7 @@ public class StaffSignIn implements ActionListener {
         frame.add(staffIDLabel);
         frame.add(phoneLabel);
         frame.add(userPasswordLabel);
+        frame.add(messageLabel);
         frame.add(label);
         frame.setIconImage(icon.getImage());
         frame.setIconImage(icon.getImage());
@@ -108,6 +118,7 @@ public class StaffSignIn implements ActionListener {
         frame.setVisible(true);
     }
 
+    /*
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== myButton1){
@@ -116,7 +127,36 @@ public class StaffSignIn implements ActionListener {
         }
         if (e.getSource()==myButton2){
             frame.dispose();
-            new StaffLogIn();
+            new StaffLogIn(true, 0);
+        }
+    }
+    */
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource()==myButton1){
+            frame.dispose();
+            new CoverPage();
+        }
+        if (e.getSource()==myButton2) {
+            String name = nameLabelField.getText();
+            String email = emailLabelField.getText();
+            String userName = staffIDField.getText();
+            String phone = phoneLabelField.getText();
+            String password = String.valueOf(userPasswordField.getPassword());
+
+            try {
+                int status = dbase.addStaff(name, email, userName, password, phone);
+                if(status==0){
+                    frame.dispose();
+                    new StaffSignIn(false);
+                } else {
+                    frame.dispose();
+                    new StaffLogIn(true, 0);
+                }
+            } catch (Exception ex) {
+                ex.printStackTrace();
+            }
         }
     }
 }

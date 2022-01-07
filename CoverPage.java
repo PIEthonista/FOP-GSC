@@ -85,11 +85,11 @@ public class CoverPage implements ActionListener {
         }
         if (e.getSource()==myButton3){
             frame.dispose();
-            new StaffSignIn();
+            new StaffSignIn(true);
         }
         if (e.getSource()==myButton4){
             frame.dispose();
-            new StaffLogIn();
+            new StaffLogIn(true, 0);
         }
     }
 }

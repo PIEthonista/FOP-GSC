@@ -136,7 +136,7 @@ public class CustomerSignIn implements ActionListener {
             new CoverPage();
         }
         if (e.getSource()==myButton2) {
-            String name = userNameField.getText();
+            String name = nameLabelField.getText();
             String email = emailLabelField.getText();
             String userName = userNameField.getText();
             String phone = phoneLabelField.getText();

@@ -13,12 +13,13 @@ public class StaffLogIn implements ActionListener {
     JLabel userIDLabel= new JLabel("StaffID: ");
     JLabel userPasswordLabel = new JLabel("Password:");
     JTextField userIDField= new JTextField();
+    JLabel messageLabel = new JLabel();
     JPasswordField userPasswordField = new JPasswordField();
     JButton myButton1 = new JButton("Back");
     JButton myButton2 = new JButton("Log in");
 
 
-    StaffLogIn(){
+    StaffLogIn(Boolean tf, int err){
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
         label.setBounds(0,0,750,750);
@@ -39,6 +40,20 @@ public class StaffLogIn implements ActionListener {
 
         userPasswordField.setBounds(200,300,450,30);
         userPasswordField.setFont(new Font(null,Font.PLAIN,20));
+
+        if(!tf){   // true=no error, 1==pswd 2==username
+            if(err==1){
+                messageLabel.setBounds(200,270,300,25);
+                messageLabel.setFont(new Font(null,Font.ITALIC,20));
+                messageLabel.setForeground(Color.RED);
+                messageLabel.setText("Wrong Password.");
+            } else if (err==2){
+                messageLabel.setBounds(200,170,300,25);
+                messageLabel.setFont(new Font(null,Font.ITALIC,20));
+                messageLabel.setForeground(Color.RED);
+                messageLabel.setText("Invalid Username.");
+            }
+        }
 
         myButton1.setBounds(0,0,200,40);
         myButton1.setVerticalAlignment(JLabel.CENTER);
@@ -62,6 +77,7 @@ public class StaffLogIn implements ActionListener {
         frame.add(userPasswordLabel);
         frame.add(userPasswordField);
         frame.add(userIDLabel);
+        frame.add(messageLabel);
         frame.add(label);
         frame.setIconImage(icon.getImage());
         frame.add(label);
@@ -73,13 +89,31 @@ public class StaffLogIn implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==myButton1) {
+        if (e.getSource() == myButton1){
             frame.dispose();
             new CoverPage();
         }
-        if (e.getSource()==myButton2) {
-            frame.dispose();
-            new SettingMovie();
+
+        if (e.getSource() == myButton2){
+            String username = userIDField.getText();
+            String password = String.valueOf(userPasswordField.getPassword());
+            ArrayList<String> arr;
+            try{
+                arr = dbase.getStaff(username);
+                if (arr.size()==0){
+                    frame.dispose();
+                    new StaffLogIn(false, 2);
+                } else if (!password.equals(arr.get(4))) {
+                    frame.dispose();
+                    new StaffLogIn(false, 1);
+                }else{
+                    frame.dispose();
+                    staff s1 = new staff(arr.get(0), arr.get(1), arr.get(2), arr.get(3), arr.get(4), arr.get(5));
+                    new SettingMovie();
+                }
+            } catch (Exception ex){
+                ex.printStackTrace();
+            }
         }
     }
 }
