@@ -102,7 +102,6 @@ public class CustomerLogIn implements ActionListener {
                     new BookandCancelMovie();
                 }
             } catch (Exception ex){
-                ex.printStackTrace();
                 messageLabel.setForeground(Color.RED);
                 messageLabel.setText("Invalid username!!!");
                 new CustomerLogIn();

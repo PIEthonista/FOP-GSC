@@ -6,6 +6,7 @@ public class FP {
         String path="";
         try {
             String loc = ((System.getProperty("os.name")).toLowerCase().charAt(0) == 'w') ? (".\\" + relativeFileNamePath) : ("./" + relativeFileNamePath);
+            // Prob: use "src/GSC.png" or "src/qr.png"
             //more on relative path: https://www.delftstack.com/howto/java/java-relative-path/
             File f = new File(loc);
             path = f.getAbsolutePath();
