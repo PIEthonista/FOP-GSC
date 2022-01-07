@@ -18,7 +18,7 @@ public class QRcode {
         //the BitMatrix class represents the 2D matrix of bits
         //MultiFormatWriter is a factory class that finds the appropriate Writer subclass for the BarcodeFormat requested and encodes the barcode with the supplied contents.
         String charset="UTF-8";
-        // h & w (square)
+        // h & w (square, px)
         int l=300;
         boolean status=true;
         try {

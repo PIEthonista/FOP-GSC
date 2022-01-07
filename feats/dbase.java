@@ -27,25 +27,24 @@ public class dbase{
             Class.forName("com.mysql.cj.jdbc.Driver");
             //esentially checking if the required Driver is there.
         } catch (ClassNotFoundException e) {
-            System.out.println("ERROR: 'com.mysql.cj.jdbc.Driver' MISSING!");
+            System.out.print("ERROR:: 'com.mysql.cj.jdbc.Driver' MISSING!");
             e.printStackTrace();
         }
         try {
             con = DriverManager.getConnection(url, uname, password);
             statement = con.createStatement();
-            System.out.println("Con Established");
+            System.out.print("CE ~ ");
         } catch (SQLException e) {
-            System.out.println("ERROR: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection\n - service url\n - Master username\n - Password");
+            System.out.println("ERROR:: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection\n - service url\n - Master username\n - Password");
             e.printStackTrace();
         }
     }
     public static void closeConnection(){
         try{
             con.close();
-            System.out.println("Con Closed");
-            System.out.println("----------");
+            System.out.println(" ~ CC");
         } catch (Exception e){
-            System.out.println("ERROR: CONNECTION CANNOT BE CLOSED!");
+            System.out.println("ERROR:: CONNECTION CANNOT BE CLOSED!");
             e.printStackTrace();
         }
     }
@@ -67,11 +66,11 @@ public class dbase{
                 arr.add(result.getString(5));
                 arr.add(result.getString(6));
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getCustomer()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getCustomer()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -89,12 +88,12 @@ public class dbase{
             statement.setString(5, phno);
             rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new user was INSERTED successfully!");
+                System.out.print("success - addCustomer()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addCustomer()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -108,12 +107,12 @@ public class dbase{
             statement.setString(1, uname);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old user was DELETED successfully!");
+                System.out.print("success - delCustomer()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delCustomer()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -122,7 +121,7 @@ public class dbase{
         String opt="";
         int rowsUpdated=0;
         if(option<1 || option>5){
-            System.out.println("ERROR: Option "+option+" out of bound 1-5");
+            System.out.print("ERROR:: Option "+option+" out of bound 1-5");
         } else {
             switch (option){
                 case 1:
@@ -148,12 +147,12 @@ public class dbase{
                 statement.setString(2, uname);
                 rowsUpdated = statement.executeUpdate();
                 if( rowsUpdated > 0) {
-                    System.out.println("An old user was UPDATED successfully!");
+                    System.out.print("success - updCustomer()");
                 }
                 closeConnection();
             } catch(Exception e) {
+                System.out.print("ERROR:: updCustomer()");
                 closeConnection();
-                System.out.println("ERROR: QUERY: UPDATE");
                 e.printStackTrace();
             }
         }
@@ -169,12 +168,12 @@ public class dbase{
             statement.setString(2, uname);
             rowsUpdated = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old user was UPDATED successfully!");
+                System.out.print("success - updCustomer()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updCustomer()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -197,11 +196,11 @@ public class dbase{
                 arr.add(result.getString(5));
                 arr.add(result.getString(6));
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getStaff()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getStaff()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -219,12 +218,12 @@ public class dbase{
             statement.setString(5, phno);
             rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new staff was INSERTED successfully!");
+                System.out.print("success - addStaff()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addStaff()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -238,12 +237,12 @@ public class dbase{
             statement.setString(1, uname);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old staff was DELETED successfully!");
+                System.out.print("success - delStaff()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delStaff()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -252,7 +251,7 @@ public class dbase{
         String opt="";
         int rowsUpdated=0;
         if(option<1 || option>5){
-            System.out.println("ERROR: Option "+option+" out of bound 1-5");
+            System.out.print("ERROR:: Option "+option+" out of bound 1-5");
         } else {
             switch (option){
                 case 1:
@@ -278,12 +277,12 @@ public class dbase{
                 statement.setString(2, uname);
                 rowsUpdated = statement.executeUpdate();
                 if( rowsUpdated > 0) {
-                    System.out.println("An old staff was UPDATED successfully!");
+                    System.out.print("success - updStaff()");
                 }
                 closeConnection();
             } catch(Exception e) {
+                System.out.print("ERROR:: updStaff()");
                 closeConnection();
-                System.out.println("ERROR: QUERY: UPDATE");
                 e.printStackTrace();
             }
         }
@@ -299,12 +298,12 @@ public class dbase{
             statement.setString(2, uname);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old staff was UPDATED successfully!");
+                System.out.print("success - updStaff()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updStaff()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -328,11 +327,11 @@ public class dbase{
                 temp.add(result.getString(4));
                 arr.add(temp);
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getAllFNB()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getAllFNB()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -348,12 +347,12 @@ public class dbase{
             statement.setString(3, String.valueOf(price));
             rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new FNB was INSERTED successfully!");
+                System.out.print("success - addFNB()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addFNB()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -367,12 +366,12 @@ public class dbase{
             statement.setString(1, name);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old FNB was DELETED successfully!");
+                System.out.print("success - delFNB()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delFNB()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -381,7 +380,7 @@ public class dbase{
         String opt="";
         int rowsUpdated=0;
         if(option<1 || option>3){
-            System.out.println("ERROR: Option "+option+" out of bound 1-3");
+            System.out.print("ERROR:: Option "+option+" out of bound 1-3");
         } else {
             switch (option){
                 case 1:
@@ -401,12 +400,12 @@ public class dbase{
                 statement.setString(2, name);
                 rowsUpdated = statement.executeUpdate();
                 if( rowsUpdated > 0) {
-                    System.out.println("An old FNB was UPDATED successfully!");
+                    System.out.print("success - updFNB()");
                 }
                 closeConnection();
             } catch(Exception e) {
+                System.out.print("ERROR:: updFNB()");
                 closeConnection();
-                System.out.println("ERROR: QUERY: UPDATE");
                 e.printStackTrace();
             }
         }
@@ -422,12 +421,12 @@ public class dbase{
             statement.setString(2, name);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old FNB was UPDATED successfully!");
+                System.out.print("success - updFNB()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updFNB()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -462,11 +461,11 @@ public class dbase{
                 temp.add(result.getString(15));
                 arr.add(temp);
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getHistory()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getHistory()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -494,12 +493,12 @@ public class dbase{
             statement.setString(14, t_cardnum);
             rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new history record was INSERTED successfully!");
+                System.out.print("success - addHistory()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addHistory()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -513,12 +512,12 @@ public class dbase{
             statement.setString(1, uname);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old history record was DELETED successfully!");
+                System.out.print("success - delHistory()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delHistory()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -528,7 +527,7 @@ public class dbase{
         int rowsUpdated=0;
         String opt = arr[option-1];
         if(option<1 || option>14){
-            System.out.println("ERROR: Option "+option+" out of bound 1-14");
+            System.out.print("ERROR:: Option "+option+" out of bound 1-14");
         } else {
             try {
                 getConnection();
@@ -538,12 +537,12 @@ public class dbase{
                 statement.setString(2, uname);
                 rowsUpdated = statement.executeUpdate();
                 if( rowsUpdated > 0) {
-                    System.out.println("An old history record was UPDATED successfully!");
+                    System.out.print("success - updHistory()");
                 }
                 closeConnection();
             } catch(Exception e) {
+                System.out.print("ERROR:: updHistory()");
                 closeConnection();
-                System.out.println("ERROR: QUERY: UPDATE");
                 e.printStackTrace();
             }
         }
@@ -559,12 +558,12 @@ public class dbase{
             statement.setString(2, uname);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old history record was UPDATED successfully!");
+                System.out.print("success - updHistory()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updHistory()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -592,11 +591,11 @@ public class dbase{
                 temp.add(result.getString(7));
                 arr.add(temp);
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getAllMovies()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getAllMovies()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -622,11 +621,11 @@ public class dbase{
                 arr.add(result.getString(6));
                 arr.add(result.getString(7));
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getMovies()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getMovies()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -646,12 +645,12 @@ public class dbase{
             statement.setString(6, childrenp1.toString());
             rowsInserted = statement.executeUpdate();
             if (rowsInserted > 0) {
-                System.out.println("A new movie was INSERTED successfully!");
+                System.out.print("success - addMovies()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addMovies()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -665,12 +664,12 @@ public class dbase{
             statement.setString(1, m_title);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old movie was DELETED successfully!");
+                System.out.print("success - delMovies()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delMovies()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -680,7 +679,7 @@ public class dbase{
         int rowsUpdated=0;
         String opt = arr[option-1];
         if(option<1 || option>6){
-            System.out.println("ERROR: Option "+option+" out of bound 1-6");
+            System.out.print("ERROR:: Option "+option+" out of bound 1-6");
         } else {
             try {
                 getConnection();
@@ -690,12 +689,12 @@ public class dbase{
                 statement.setString(2, m_title);
                 rowsUpdated = statement.executeUpdate();
                 if( rowsUpdated > 0) {
-                    System.out.println("An old movie was UPDATED successfully!");
+                    System.out.print("success - updMovies");
                 }
                 closeConnection();
             } catch(Exception e) {
+                System.out.print("ERROR:: updMovies()");
                 closeConnection();
-                System.out.println("ERROR: QUERY: UPDATE");
                 e.printStackTrace();
             }
         }
@@ -711,12 +710,12 @@ public class dbase{
             statement.setString(2, m_title);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old movie was UPDATED successfully!");
+                System.out.print("success - updMovies()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updMovies()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -739,11 +738,11 @@ public class dbase{
                 temp.add(result.getString(4));
                 arr.add(temp);
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getCasts()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getCasts()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -761,12 +760,12 @@ public class dbase{
                 rowsInserted += statement.executeUpdate();
             }
             if (rowsInserted > 0) {
-                System.out.println("A new movie casts was INSERTED successfully!");
+                System.out.print("success - addCasts()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addCasts()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -780,12 +779,12 @@ public class dbase{
             statement.setString(1, m_title);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old movie's casts was DELETED successfully!");
+                System.out.print("success - delCasts()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delCasts()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -811,11 +810,11 @@ public class dbase{
                 temp.add(result.getString(6));
                 arr.add(temp);
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getDTL_front()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getDTL_front()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -834,11 +833,11 @@ public class dbase{
                     arr.add(result.getString(i));
                 }
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getSpecDTL_all()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getSpecDTL_all()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return arr;
@@ -867,11 +866,11 @@ public class dbase{
                     max=arr.get(i);
                 }
             }
-            System.out.println("Information retrieved successfully");
+            System.out.print("success - getDTL_hallmin()");
             closeConnection();
         } catch(Exception e){
+            System.out.print("ERROR:: getDTL_hallmin()");
             closeConnection();
-            System.out.println("ERROR: QUERY: SELECT");
             e.printStackTrace();
         }
         return max;
@@ -892,12 +891,12 @@ public class dbase{
                 rowsInserted += statement.executeUpdate();
             }
             if (rowsInserted > 0) {
-                System.out.println("A new movie DateTimeLoc(s) was INSERTED successfully!");
+                System.out.print("success - addDTL_all()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: addDTL_all()");
             closeConnection();
-            System.out.println("ERROR: QUERY: INSERT");
             e.printStackTrace();
         }
         return rowsInserted;
@@ -911,12 +910,12 @@ public class dbase{
             statement.setString(1, m_title);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
-                System.out.println("An old DateTimeLoc(s) was DELETED successfully!");
+                System.out.print("success - delDTL_all()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: delDTL_all()");
             closeConnection();
-            System.out.println("ERROR: QUERY: DELETE");
             e.printStackTrace();
         }
         return rowsDeleted;
@@ -930,12 +929,12 @@ public class dbase{
             statement.setString(1, updateValue);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old datetimeloc's "+option+" was UPDATED successfully!");
+                System.out.print("success - updSpecDTL_front()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updSpecDTL_front()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
@@ -956,12 +955,12 @@ public class dbase{
             PreparedStatement statement = con.prepareStatement(query);
             rowsUpdated  = statement.executeUpdate();
             if( rowsUpdated > 0) {
-                System.out.println("An old datetimeloc's SEATS was UPDATED successfully!");
+                System.out.print("success - updSpecDTL_back()");
             }
             closeConnection();
         } catch(Exception e) {
+            System.out.print("ERROR:: updSpecDTL_back()");
             closeConnection();
-            System.out.println("ERROR: QUERY: UPDATE");
             e.printStackTrace();
         }
         return rowsUpdated;
