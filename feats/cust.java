@@ -34,6 +34,7 @@ public class cust{
         pswd = Pswd;
         phoneno = PhoneNo;
     }
+
     // RESET cust obj's attributes to null/0
     public static void RESET(){
         id=null;
