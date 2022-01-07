@@ -1,13 +1,14 @@
-package ExampleGSC;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.ArrayList;
+import feats.*;
+
 public class BookMovie implements ActionListener {
 
-    ImageIcon icon = new ImageIcon("C:\\Users\\RONYLAU123\\IdeaProjects\\RONYLAU\\src\\ExampleGSC\\GSC.png");
+    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
     JFrame frame = new JFrame("Book Your Movie");
     JLabel label = new JLabel();
     JButton myButton1 = new JButton("Back");

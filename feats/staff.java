@@ -1,4 +1,6 @@
 // staff
+package feats;
+
 public class staff{
     String name;
     String pswd;

@@ -1,13 +1,14 @@
-package ExampleGSC;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import java.util.ArrayList;
+import feats.*;
+
 public class StaffSignIn implements ActionListener {
 
-    ImageIcon icon = new ImageIcon("C:\\Users\\RONYLAU123\\IdeaProjects\\RONYLAU\\src\\ExampleGSC\\GSC.png");
+    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
     JFrame frame = new JFrame("NEW CUSTOMER CREATE ACCOUNT PAGE");
     JLabel label = new JLabel();
     JLabel nameLabel = new JLabel("Name:");
@@ -105,7 +106,7 @@ public class StaffSignIn implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-        }
+    }
 
     @Override
     public void actionPerformed(ActionEvent e) {

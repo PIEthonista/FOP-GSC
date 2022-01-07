@@ -1,3 +1,5 @@
+package feats;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -11,7 +13,10 @@ public class dbase{
     static Connection con;
     static Statement statement;
     private static String uname = "root";
+
+    // CHANGE TO YOUR LOCAL MySQL Password
     private static String password = "J0hnLegend";
+
     private static String url = "jdbc:mysql://localhost:3306/FOPGSC";
     //private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
     //                                        ^Endpoint                                           ^Port^DB

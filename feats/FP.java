@@ -1,3 +1,5 @@
+package feats;
+
 import java.io.*;
 public class FP {
     public static String getPath(String relativeFileNamePath){
@@ -11,7 +13,7 @@ public class FP {
             e.printStackTrace();
         }
         return path;
-    }
+    } // insert file n this will get you the full path
 
     public static boolean delFile(String relativeFileNamePath){
         boolean status=true;

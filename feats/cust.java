@@ -1,4 +1,6 @@
 // customer
+package feats;
+
 import java.util.ArrayList;
 
 public class cust{

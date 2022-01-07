@@ -1,9 +1,10 @@
-package ExampleGSC;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import java.util.ArrayList;
+import feats.*;
 
 public class CoverPage implements ActionListener {
 
@@ -16,7 +17,7 @@ public class CoverPage implements ActionListener {
 
     public CoverPage() {
 
-        ImageIcon icon = new ImageIcon(".\\src\\ExampleGSC\\GSC.png");
+        ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
         //C:\Users\RONYLAU123\IdeaProjects\RONYLAU\src\ExampleGSC\GSC.png
 
         label.setBackground(new Color(50, 50, 50));
