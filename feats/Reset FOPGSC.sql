@@ -19,10 +19,10 @@ DROP TABLE datetimeloc;
 CREATE TABLE customer(
     c_id INT AUTO_INCREMENT,
     c_name VARCHAR(100) NOT NULL,
-    c_email VARCHAR(50) UNIQUE,
+    c_email VARCHAR(50) NOT NULL,
     c_uname VARCHAR(30) UNIQUE,
     c_pswd VARCHAR(30) NOT NULL,
-    c_phno VARCHAR(15) UNIQUE,
+    c_phno VARCHAR(15) NOT NULL,
     PRIMARY KEY(c_id)
 );
 
