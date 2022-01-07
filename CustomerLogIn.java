@@ -100,6 +100,7 @@ public class CustomerLogIn implements ActionListener {
                     new CustomerLogIn();
                 }else{
                     frame.dispose();
+                    cust c1 = new cust(arr.get(0), arr.get(1), arr.get(2), arr.get(3), arr.get(4), arr.get(5));
                     new BookandCancelMovie();
                 }
             } catch (Exception ex){

@@ -1,25 +1,33 @@
 // staff
 package feats;
 
+import java.util.ArrayList;
+
 public class staff{
-    String name;
-    String pswd;
+    public static String id;
+    public static String name;
+    public static String email;
+    public static String uname;
+    public static String pswd;
+    public static String phoneno;
 
-    // constructor
-    public staff (String name, String pswd){
-        this.name = name;
-        this.pswd = pswd;
+
+    // basic constructor
+    public staff (String ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){
+        id = ID;
+        name = Name;
+        email = Email;
+        uname = Uname;
+        pswd = Pswd;
+        phoneno = PhoneNo;
     }
-
-    static void getmovie(){}
-    static void addmovie(){}
-    static void delmovie(){}
-
-    static void getseat(){}
-    static void setseat(){}
-
-    static void setprice(){}
-
-    static void addfnb(){}
-    static void delfnb(){}
+    // RESET staff obj's attributes to null/0
+    public static void RESET(){
+        id=null;
+        name=null;
+        email=null;
+        uname=null;
+        pswd=null;
+        phoneno=null;
+    }
 }

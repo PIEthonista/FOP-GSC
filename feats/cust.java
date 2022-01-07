@@ -4,7 +4,7 @@ package feats;
 import java.util.ArrayList;
 
 public class cust{
-    public static int id;
+    public static String id;
     public static String name;
     public static String email;
     public static String uname;
@@ -25,13 +25,35 @@ public class cust{
     public static String t_cardtype;   // credit/debit
     public static String t_cardnum;    // 0000-0000-0000-0000
 
-    // basic constructor
-    public cust (int ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){
+    // basic constructor (actually object not required, just summarise basic params to one method)
+    public cust (String ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){
         id = ID;
         name = Name;
         email = Email;
         uname = Uname;
         pswd = Pswd;
         phoneno = PhoneNo;
+    }
+    // RESET cust obj's attributes to null/0
+    public static void RESET(){
+        id=null;
+        name=null;
+        email=null;
+        uname=null;
+        pswd=null;
+        phoneno=null;
+        title=null;
+        date=null;
+        time=null;
+        hallno=null;
+        seats.clear();
+        adult=0;
+        student=0;
+        children=0;
+        f_id.clear();
+        t_date=null;
+        t_amount=0;
+        t_cardtype=null;
+        t_cardnum=null;
     }
 }
