@@ -278,14 +278,11 @@ INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Sprite', 'Some gas drinks to spic
 
 
 /* history */
-INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum)
-VALUES("Pyrexia02", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "i10;i11;i12;i13", 3, 1, 0, "1;1;8;8;8;5", "2021-12-10", 134, "credit", "1435-4956-0984-2365");
-INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum)
-VALUES("rony456", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "g14;g15;h14;h15", 4, 0, 0, "1;4;5;5;6", "2021-12-08", 141, "debit", "9087-4562-1328-5336");
+INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum) VALUES("Pyrexia02", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "i10;i11;i12;i13", 3, 1, 0, "1;1;8;8;8;5", "2021-12-10", 134, "credit", "1435-4956-0984-2365");
+INSERT INTO history(h_uname, h_title, h_date, h_time, h_hallno, h_seats, adult, student, children, f_id, t_datetime, t_amount, t_cardtype, t_cardnum) VALUES("rony456", "Spider-Man: No Way Home", "2021-12-17", "08:00", "01", "g14;g15;h14;h15", 4, 0, 0, "1;4;5;5;6", "2021-12-08", 141, "debit", "9087-4562-1328-5336");
 
 /* movies */
-INSERT INTO movies(m_title, m_reldate, synopsis, adultp, studentp, childrenp)
-VALUES("Spider-Man: No Way Home", "2012-12-17", "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.", 28, 18, 20);
+INSERT INTO movies(m_title, m_reldate, synopsis, adultp, studentp, childrenp) VALUES("Spider-Man: No Way Home", "2012-12-17", "With Spider-Man's identity now revealed, Peter asks Doctor Strange for help. When a spell goes wrong, dangerous foes from other worlds start to appear, forcing Peter to discover what it truly means to be Spider-Man.", 28, 18, 20);
 
 /* casts */
 INSERT INTO casts(m_title, c_name, c_char) VALUES("Spider-Man: No Way Home", "Tom Holland", "Peter Parker");
@@ -313,5 +310,9 @@ SELECT * FROM information_schema.tables WHERE TABLE_SCHEMA='FOPGSC';
 
 DELETE FROM fnb WHERE f_name='Coca-Cola';
 SELECT * FROM fnb;
-*/
 
+ - movies ==5
+ - datetimeloc ==5
+ +casts
+ - history every customer 3
+*/
