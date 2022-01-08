@@ -1,5 +1,6 @@
 package feats;
 
+import javax.swing.*;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -21,12 +22,38 @@ public class dbase{
     //private static String url = "jdbc:mysql://database-1.cbv42i2cijkc.us-east-2.rds.amazonaws.com:3306/FOPGSC";
     //                                        ^Endpoint                                           ^Port^DB
     // Enabled inbound rules : ALL, IPv4 IPv6
+    public static void setUname(String u){
+        uname = u;
+    }
+    public static void setPswd(String p){
+        password = p;
+    }
+    public static void SQLsetup(int n){
+        while(true){
+            if(n==0){
+                dbase.setUname(JOptionPane.showInputDialog("Username:"));
+                dbase.setPswd(JOptionPane.showInputDialog("Password:"));
+            } else {
+                dbase.setUname(JOptionPane.showInputDialog("ERROR_Username:"));
+                dbase.setPswd(JOptionPane.showInputDialog("Password:"));
+            }
+            if(dbase.getConnection()==0 && dbase.closeConnection()==0){
+                JOptionPane.showMessageDialog(null, "You're good to go ;)");
+                break;
+            } else {
+                SQLsetup(1);
+            }
+            break;
+        }
+    }
 
-    public static void getConnection(){
+    public static int getConnection(){
+        int status=0;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             //esentially checking if the required Driver is there.
         } catch (ClassNotFoundException e) {
+            status=1;
             System.out.print("ERROR:: 'com.mysql.cj.jdbc.Driver' MISSING!");
             e.printStackTrace();
         }
@@ -35,18 +62,23 @@ public class dbase{
             statement = con.createStatement();
             System.out.print("CE ~ ");
         } catch (SQLException e) {
-            System.out.println("ERROR:: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection\n - service url\n - Master username\n - Password");
+            status=1;
+            System.out.println("ERROR:: FAILED TO ESTABLISH CONNECTION!\nCheck the below:\n - WiFi Connection (for AWS RLDB)\n - Service URL\n - Master Username\n - Password");
             e.printStackTrace();
         }
+        return status;
     }
-    public static void closeConnection(){
+    public static int closeConnection(){
+        int status=0;
         try{
             con.close();
             System.out.println(" ~ CC");
         } catch (Exception e){
+            status=1;
             System.out.println("ERROR:: CONNECTION CANNOT BE CLOSED!");
             e.printStackTrace();
         }
+        return status;
     }
 
     //customer

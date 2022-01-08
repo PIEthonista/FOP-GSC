@@ -29,7 +29,7 @@ public class StaffSignIn implements ActionListener {
 
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
-        label.setBounds(0,0,750,750);
+        label.setBounds(0,0,1250,750);
 
         nameLabel.setBounds(50,100,125,30);
         nameLabel.setBackground(Color.MAGENTA);
@@ -112,7 +112,7 @@ public class StaffSignIn implements ActionListener {
         frame.setIconImage(icon.getImage());
         frame.setIconImage(icon.getImage());
         frame.add(label);
-        frame.setSize(750,750);
+        frame.setSize(1250,750);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);

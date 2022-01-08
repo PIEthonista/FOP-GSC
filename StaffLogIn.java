@@ -22,7 +22,7 @@ public class StaffLogIn implements ActionListener {
     StaffLogIn(Boolean tf, int err){
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
-        label.setBounds(0,0,750,750);
+        label.setBounds(0,0,1250,750);
         label.setHorizontalAlignment(JLabel.CENTER);
 
         userIDLabel.setBounds(50,200,125,30);
@@ -81,7 +81,7 @@ public class StaffLogIn implements ActionListener {
         frame.add(label);
         frame.setIconImage(icon.getImage());
         frame.add(label);
-        frame.setSize(750,750);
+        frame.setSize(1250,750);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
