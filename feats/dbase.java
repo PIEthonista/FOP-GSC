@@ -37,10 +37,14 @@ public class dbase{
                 dbase.setUname(JOptionPane.showInputDialog("ERROR_Username:"));
                 dbase.setPswd(JOptionPane.showInputDialog("Password:"));
             }
-            if(dbase.getConnection()==0 && dbase.closeConnection()==0){
+            int g = getConnection();
+            int t = updCustomer("yx123", 3, "yx123");
+            int c = closeConnection();
+            if(g==0 && c==0 && t>0) {
                 JOptionPane.showMessageDialog(null, "You're good to go ;)");
                 break;
             } else {
+                JOptionPane.showMessageDialog(null, "ERROR: Check the following:\n - Username\n - Password\n - Database Configuration");
                 SQLsetup(1);
             }
             break;
