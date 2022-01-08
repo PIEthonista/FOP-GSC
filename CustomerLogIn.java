@@ -58,7 +58,7 @@ public class CustomerLogIn implements ActionListener {
 
         myButton1.setBounds(0,0,200,40);
         myButton1.setVerticalAlignment(JLabel.CENTER);
-        myButton1.setBackground(new Color(220,120,0));
+        myButton1.setBackground(new Color(255, 245, 6));
         myButton1.setFocusable(false);
         myButton1.setHorizontalAlignment(JLabel.CENTER);
         myButton1.setFont(new Font("Arial Black",Font.BOLD,20));
@@ -66,7 +66,7 @@ public class CustomerLogIn implements ActionListener {
 
         myButton2.setBounds(150,450,200,40);
         myButton2.setVerticalAlignment(JLabel.CENTER);
-        myButton2.setBackground(new Color(220,120,0));
+        myButton2.setBackground(new Color(255, 245, 6));
         myButton2.setFocusable(false);
         myButton2.setHorizontalAlignment(JLabel.CENTER);
         myButton2.setFont(new Font("Arial Black",Font.BOLD,20));
@@ -74,7 +74,7 @@ public class CustomerLogIn implements ActionListener {
 
         myButton3.setBounds(450,450,200,40);
         myButton3.setVerticalAlignment(JLabel.CENTER);
-        myButton3.setBackground(new Color(220,120,0));
+        myButton3.setBackground(new Color(255, 245, 6));
         myButton3.setFocusable(false);
         myButton3.setHorizontalAlignment(JLabel.CENTER);
         myButton3.setFont(new Font("Arial Black",Font.BOLD,20));
