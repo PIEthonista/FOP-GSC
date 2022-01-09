@@ -40,6 +40,9 @@ public class CoverPage extends JFrame implements ActionListener {
         label.setIcon(s[0]);
         // ===== yx
 
+        // GSC Gray : 20,20,20
+        // GSC Yellow: 255,245,6
+        // abs Black: 0,0,0
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
         //label.setBounds(0, 0, 750, 750);
@@ -50,34 +53,34 @@ public class CoverPage extends JFrame implements ActionListener {
         // default x=220 y=275 w=300 h=40
         myButton1.setBounds(675, 40, 160, 40);    //yx
         myButton1.setVerticalAlignment(JLabel.CENTER);
-        myButton1.setBackground(new Color(255, 245, 6));
+        myButton1.setBackground(design.yellow);
         myButton1.setFocusable(false);
         myButton1.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(new Font("Sans Serif", Font.PLAIN, 15));    //yx
+        myButton1.setFont(design.ss15);    //yx
         myButton1.addActionListener(this);
 
         myButton2.setBounds(505, 40, 160, 40);    //yx
         myButton2.setVerticalAlignment(JLabel.CENTER);
-        myButton2.setBackground(new Color(255, 245, 6));
+        myButton2.setBackground(design.yellow);
         myButton2.setFocusable(false);
         myButton2.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(new Font("Sans Serif", Font.PLAIN, 15));    //yx
+        myButton1.setFont(design.ss15);    //yx
         myButton2.addActionListener(this);
 
         myButton3.setBounds(1045, 40, 160, 40);    //yx
         myButton3.setVerticalAlignment(JLabel.CENTER);
-        myButton3.setBackground(new Color(255, 245, 6));
+        myButton3.setBackground(design.yellow);
         myButton3.setFocusable(false);
         myButton3.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(new Font("Sans Serif", Font.PLAIN, 15));    //yx
+        myButton1.setFont(design.ss15);    //yx
         myButton3.addActionListener(this);
 
         myButton4.setBounds(875, 40, 160, 40);    //yx
         myButton4.setVerticalAlignment(JLabel.CENTER);
-        myButton4.setBackground(new Color(255, 245, 6));
+        myButton4.setBackground(design.yellow);
         myButton4.setFocusable(false);
         myButton4.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(new Font("Sans Serif", Font.PLAIN, 15));    //yx
+        myButton1.setFont(design.ss15);    //yx
         myButton4.addActionListener(this);
 
         label.add(myButton1);
@@ -126,28 +129,28 @@ public class CoverPage extends JFrame implements ActionListener {
         @Override
         public void actionPerformed (ActionEvent e){
             if (e.getSource() == myButton1) {
-                frame.dispose();
                 timer.cancel();    //yx
                 timer.purge();     //yx
                 new CustomerSignIn(true);
+                frame.dispose();
             }
             if (e.getSource() == myButton2) {
-                frame.dispose();
                 timer.cancel();    //yx
                 timer.purge();     //yx
                 new CustomerLogIn(true, 0);
+                frame.dispose();
             }
             if (e.getSource() == myButton3) {
-                frame.dispose();
                 timer.cancel();    //yx
                 timer.purge();     //yx
                 new StaffSignIn(true);
+                frame.dispose();
             }
             if (e.getSource() == myButton4) {
-                frame.dispose();
                 timer.cancel();    //yx
                 timer.purge();     //yx
                 new StaffLogIn(true, 0);
+                frame.dispose();
             }
         }
     }

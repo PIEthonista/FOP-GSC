@@ -8,12 +8,12 @@ import feats.*;
 
 public class StaffSignIn implements ActionListener {
 
-    ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
-    JFrame frame = new JFrame("NEW CUSTOMER CREATE ACCOUNT PAGE");
+    ImageIcon icon = new ImageIcon(FP.getPath("cust_signup.png"));
+    JFrame frame = new JFrame("NEW STAFF REGISTRATION");
     JLabel label = new JLabel();
     JLabel nameLabel = new JLabel("Name:");
     JLabel emailLabel = new JLabel("Email:");
-    JLabel staffIDLabel = new JLabel("StaffID: ");
+    JLabel staffIDLabel = new JLabel("Staff ID:");
     JLabel phoneLabel = new JLabel("Phone No:");
     JLabel userPasswordLabel = new JLabel("Password:");
     JTextField nameLabelField= new JTextField();
@@ -22,81 +22,116 @@ public class StaffSignIn implements ActionListener {
     JTextField phoneLabelField= new JTextField();
     JLabel messageLabel = new JLabel();
     JPasswordField userPasswordField = new JPasswordField();
-    JButton myButton1 = new JButton("Back ");
-    JButton myButton2 = new JButton("Create Account");
+    JButton myButton1 = new JButton("Previous Page");
+    JButton myButton2 = new JButton("Register");
+    JButton myButton3 = new JButton("Clear");
 
     StaffSignIn(Boolean tf) {
 
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
         label.setBounds(0,0,1250,750);
+        label.setIcon(icon);
+        label.setHorizontalAlignment(JLabel.CENTER);
 
-        nameLabel.setBounds(50,100,125,30);
-        nameLabel.setBackground(Color.MAGENTA);
+        int x=10;
+        int y=30;
+
+        nameLabel.setBounds(550-x,425-y-75-75-75,125,30);
+        nameLabel.setBackground(design.dgray);
         nameLabel.setOpaque(true);
-        nameLabel.setFont(new Font("MV Boli",Font.BOLD,20));
+        nameLabel.setFont(design.sui20);
+        nameLabel.setForeground(design.lgray);
+        nameLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        emailLabel.setBounds(50,200,125,30);
-        emailLabel.setBackground(Color.MAGENTA);
+        emailLabel.setBounds(550-x,425-y-75-75,125,30);
+        emailLabel.setBackground(design.dgray);
         emailLabel.setOpaque(true);
-        emailLabel.setFont(new Font("MV Boli",Font.BOLD,20));
+        emailLabel.setFont(design.sui20);
+        emailLabel.setForeground(design.lgray);
+        emailLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        staffIDLabel.setBounds(50,300,125,30);
-        staffIDLabel.setBackground(Color.MAGENTA);
+        staffIDLabel.setBounds(550-x,425-y-75,125,30);
+        staffIDLabel.setBackground(design.dgray);
         staffIDLabel.setOpaque(true);
-        staffIDLabel.setFont(new Font("MV Boli",Font.BOLD,20));
+        staffIDLabel.setFont(design.sui20);
+        staffIDLabel.setForeground(design.lgray);
+        staffIDLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        phoneLabel.setBounds(50,400,125,30);
-        phoneLabel.setBackground(Color.MAGENTA);
+        phoneLabel.setBounds(550-x,425-y,125,30);
+        phoneLabel.setBackground(design.dgray);
         phoneLabel.setOpaque(true);
-        phoneLabel.setFont(new Font("MV Boli",Font.BOLD,20));
+        phoneLabel.setFont(design.sui20);
+        phoneLabel.setForeground(design.lgray);
+        phoneLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        userPasswordLabel.setBounds(50,500,125,30);
-        userPasswordLabel.setBackground(Color.MAGENTA);
+        userPasswordLabel.setBounds(550-x,500-y,125,30);
+        userPasswordLabel.setBackground(design.dgray);
         userPasswordLabel.setOpaque(true);
-        userPasswordLabel.setFont(new Font("MV Boli",Font.BOLD,20));
+        userPasswordLabel.setFont(design.sui20);
+        userPasswordLabel.setForeground(design.lgray);
+        userPasswordLabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        nameLabelField.setBounds(200,100,450,30);
-        nameLabelField.setFont(new Font(null,Font.PLAIN,20));
+        nameLabelField.setBounds(700-x,425-75-75-75-y,450,30);
+        nameLabelField.setFont(design.ss20i);
+        nameLabelField.setForeground(design.mgray);
+        nameLabelField.setBackground(design.lgray);
 
-        emailLabelField.setBounds(200,200,450,30);
-        emailLabelField.setFont(new Font(null,Font.PLAIN,20));
+        emailLabelField.setBounds(700-x,425-75-75-y,450,30);
+        emailLabelField.setFont(design.ss20i);
+        emailLabelField.setForeground(design.mgray);
+        emailLabelField.setBackground(design.lgray);
 
-        staffIDField.setBounds(200,300,450,30);
-        staffIDField.setFont(new Font(null,Font.PLAIN,20));
+        staffIDField.setBounds(700-x,425-75-y,450,30);
+        staffIDField.setFont(design.ss20i);
+        staffIDField.setForeground(design.mgray);
+        staffIDField.setBackground(design.lgray);
 
-        phoneLabelField.setBounds(200,400,450,30);
-        phoneLabelField.setFont(new Font(null,Font.PLAIN,20));
+        phoneLabelField.setBounds(700-x,425-y,450,30);
+        phoneLabelField.setFont(design.ss20i);
+        phoneLabelField.setForeground(design.mgray);
+        phoneLabelField.setBackground(design.lgray);
 
-        userPasswordField.setBounds(200,500,450,30);
-        userPasswordField.setFont(new Font(null,Font.PLAIN,20));
+        userPasswordField.setBounds(700-x,500-y,450,30);
+        userPasswordField.setFont(design.ss20i);
+        userPasswordField.setForeground(design.mgray);
+        userPasswordField.setBackground(design.lgray);
 
         //error label
         if(!tf){
-            messageLabel.setBounds(200,270,300,25);
-            messageLabel.setFont(new Font(null,Font.ITALIC,20   ));
-            messageLabel.setForeground(Color.RED);
-            messageLabel.setText("Sorry, Username already taken.");
+            messageLabel.setBounds(703-x,425-75-75-y+50,300,25);
+            messageLabel.setFont(design.erri);
+            messageLabel.setForeground(design.lred);
+            messageLabel.setText("Sorry, can't have duplicate Staff ID.");
         }
 
-        myButton1.setBounds(0,0,200,40);
+        myButton1.setBounds(567,545,160,40);
         myButton1.setVerticalAlignment(JLabel.CENTER);
-        myButton1.setBackground(new Color(255, 245, 6));
+        myButton1.setBackground(design.mgray);
         myButton1.setFocusable(false);
         myButton1.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(new Font("Arial Black",Font.BOLD,20));
+        myButton1.setFont(design.ss15);
         myButton1.addActionListener(this);
 
-        myButton2.setBounds(220,625,300,40);
+        myButton2.setBounds(800,545,160,40);
         myButton2.setVerticalAlignment(JLabel.CENTER);
-        myButton2.setBackground(new Color(255, 245, 6));
+        myButton2.setBackground(design.yellow);
         myButton2.setFocusable(false);
         myButton2.setHorizontalAlignment(JLabel.CENTER);
-        myButton2.setFont(new Font("Arial Black",Font.BOLD,20));
+        myButton2.setFont(design.ss15);
         myButton2.addActionListener(this);
+
+        myButton3.setBounds(980,545,160,40);
+        myButton3.setVerticalAlignment(JLabel.CENTER);
+        myButton3.setBackground(design.mgray);
+        myButton3.setFocusable(false);
+        myButton3.setHorizontalAlignment(JLabel.CENTER);
+        myButton3.setFont(design.ss15);
+        myButton3.addActionListener(this);
 
         label.add(myButton1);
         label.add(myButton2);
+        label.add(myButton3);
         frame.add(nameLabelField);
         frame.add(emailLabelField);
         frame.add(staffIDField);
@@ -110,7 +145,6 @@ public class StaffSignIn implements ActionListener {
         frame.add(messageLabel);
         frame.add(label);
         frame.setIconImage(icon.getImage());
-        frame.setIconImage(icon.getImage());
         frame.add(label);
         frame.setSize(1250,750);
         frame.setLocationRelativeTo(null);
@@ -118,25 +152,11 @@ public class StaffSignIn implements ActionListener {
         frame.setVisible(true);
     }
 
-    /*
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource()== myButton1){
-            frame.dispose();
-            new CoverPage();
-        }
-        if (e.getSource()==myButton2){
-            frame.dispose();
-            new StaffLogIn(true, 0);
-        }
-    }
-    */
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==myButton1){
-            frame.dispose();
             new CoverPage();
+            frame.dispose();
         }
         if (e.getSource()==myButton2) {
             String name = nameLabelField.getText();
@@ -148,15 +168,22 @@ public class StaffSignIn implements ActionListener {
             try {
                 int status = dbase.addStaff(name, email, userName, password, phone);
                 if(status==0){
-                    frame.dispose();
                     new StaffSignIn(false);
-                } else {
                     frame.dispose();
+                } else {
                     new StaffLogIn(true, 0);
+                    frame.dispose();
                 }
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
+        }
+        if (e.getSource()==myButton3){
+            nameLabelField.setText("");
+            emailLabelField.setText("");
+            staffIDField.setText("");
+            phoneLabelField.setText("");
+            userPasswordField.setText("");
         }
     }
 }

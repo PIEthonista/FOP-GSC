@@ -37,10 +37,7 @@ public class dbase{
                 dbase.setUname(JOptionPane.showInputDialog("ERROR_Username:"));
                 dbase.setPswd(JOptionPane.showInputDialog("Password:"));
             }
-            int g = getConnection();
-            int t = updCustomer("yx123", 3, "yx123");
-            int c = closeConnection();
-            if(g==0 && c==0 && t>0) {
+            if(updCustomer("yx123", 3, "yx123")>0) {
                 JOptionPane.showMessageDialog(null, "You're good to go ;)");
                 break;
             } else {
