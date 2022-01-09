@@ -16,38 +16,19 @@ public class CoverPage extends JFrame implements ActionListener {
     JButton myButton2 = new JButton("LOGIN");
     JButton myButton3 = new JButton("NEW STAFF");
     JButton myButton4 = new JButton("STAFF LOGIN");
-    static ImageIcon s[];   //yx
     Timer timer = new Timer();                    //yx
     TimerTask task = new TimeKeeper();            //yx
 
     public CoverPage() {
-
         //ImageIcon icon = new ImageIcon(FP.getPath("GSC.png"));
         //C:\Users\RONYLAU123\IdeaProjects\RONYLAU\src\ExampleGSC\GSC.png
         //setSize(2000, 1500);
-        // ===== yx
-        s = new ImageIcon[8];
-        s[0] = new ImageIcon(FP.getPath("01.png"));
-        s[1] = new ImageIcon(FP.getPath("02.png"));
-        s[2] = new ImageIcon(FP.getPath("03.png"));
-        s[3] = new ImageIcon(FP.getPath("04.png"));
-        s[4] = new ImageIcon(FP.getPath("05.png"));
-        s[5] = new ImageIcon(FP.getPath("06.png"));
-        s[6] = new ImageIcon(FP.getPath("07.png"));
-        s[7] = new ImageIcon(FP.getPath("08.png"));
         label = new JLabel("", JLabel.CENTER);
         add(label, BorderLayout.CENTER);
-        label.setIcon(s[0]);
-        // ===== yx
-
-        // GSC Gray : 20,20,20
-        // GSC Yellow: 255,245,6
-        // abs Black: 0,0,0
+        label.setIcon(design.s[0]);
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
-        //label.setBounds(0, 0, 750, 750);
         label.setBounds(0, 0, 1250, 750);    //yx
-        //label.setIcon(icon);
         label.setHorizontalAlignment(JLabel.CENTER);
 
         // default x=220 y=275 w=300 h=40
@@ -106,21 +87,21 @@ public class CoverPage extends JFrame implements ActionListener {
     public static long setImage(long n) {          //yx
         //System.out.println("setImage()");
         if (n % 8 == 0) {
-            label.setIcon(s[0]);
+            label.setIcon(design.s[0]);
         } else if (n % 8 == 1) {
-            label.setIcon(s[1]);
+            label.setIcon(design.s[1]);
         } else if (n % 8 == 2) {
-            label.setIcon(s[2]);
+            label.setIcon(design.s[2]);
         } else if (n % 8 == 3) {
-            label.setIcon(s[3]);
+            label.setIcon(design.s[3]);
         } else if (n % 8 == 4) {
-            label.setIcon(s[4]);
+            label.setIcon(design.s[4]);
         } else if (n % 8 == 5) {
-            label.setIcon(s[5]);
+            label.setIcon(design.s[5]);
         } else if (n % 8 == 6) {
-            label.setIcon(s[6]);
+            label.setIcon(design.s[6]);
         } else if (n % 8 == 7) {
-            label.setIcon(s[7]);
+            label.setIcon(design.s[7]);
         }
         n++;
         return n;
@@ -129,28 +110,22 @@ public class CoverPage extends JFrame implements ActionListener {
         @Override
         public void actionPerformed (ActionEvent e){
             if (e.getSource() == myButton1) {
-                timer.cancel();    //yx
-                timer.purge();     //yx
                 new CustomerSignIn(true);
                 frame.dispose();
             }
             if (e.getSource() == myButton2) {
-                timer.cancel();    //yx
-                timer.purge();     //yx
                 new CustomerLogIn(true, 0);
                 frame.dispose();
             }
             if (e.getSource() == myButton3) {
-                timer.cancel();    //yx
-                timer.purge();     //yx
                 new StaffSignIn(true);
                 frame.dispose();
             }
             if (e.getSource() == myButton4) {
-                timer.cancel();    //yx
-                timer.purge();     //yx
                 new StaffLogIn(true, 0);
                 frame.dispose();
             }
+            timer.cancel();    //yx
+            timer.purge();     //yx
         }
     }
