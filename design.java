@@ -35,6 +35,10 @@ public class design {
             new ImageIcon(FP.getPath("07.png")), //6
             new ImageIcon(FP.getPath("08.png"))  //7
     };
+    public static ImageIcon img[]={
+            new ImageIcon(FP.getPath("user-xxl.png"))  //0
+    };
+    /*
     public static ImageIcon s1[] = {
             new ImageIcon(FP.getPath("01+.png")), //0
             new ImageIcon(FP.getPath("02+.png")), //1
@@ -45,4 +49,5 @@ public class design {
             new ImageIcon(FP.getPath("07+.png")), //6
             new ImageIcon(FP.getPath("08+.png"))  //7
     };
+    */
 }
