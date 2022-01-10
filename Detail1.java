@@ -15,7 +15,7 @@ public class Detail1 implements ActionListener {
     JButton myButton2 =new JButton("Next");
 
 
-    Detail1(){
+    Detail1(String title){
 
         label1.setBackground(new Color(50, 50, 50));
         label1.setOpaque(true);
@@ -52,7 +52,7 @@ public class Detail1 implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==myButton1){
             frame.dispose();
-            new BookMovie();
+            new BookMovie(movi.section);
         }
         if (e.getSource()==myButton2){
             frame.dispose();

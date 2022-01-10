@@ -15,11 +15,13 @@ public class design {
     public static Color lred = new Color(217,87,78);
 
     // Font
+    public static Font ss13 = new Font("Sans Serif",Font.PLAIN, 13);
     public static Font ss15 = new Font("Sans Serif",Font.PLAIN, 15);
     public static Font ss20 = new Font("Sans Serif",Font.PLAIN, 20);
     public static Font ss20i = new Font("Sans Serif",Font.ITALIC, 20);
 
     public static Font sui20 = new Font("Segoe UI",Font.PLAIN,20);
+    public static Font sui15 = new Font("Segoe UI",Font.PLAIN,15);
 
     public static Font erri = new Font(null,Font.ITALIC,12);
 
@@ -36,9 +38,9 @@ public class design {
             new ImageIcon(FP.getPath("08.png"))  //7
     };
     public static ImageIcon img[]={
-            new ImageIcon(FP.getPath("user-xxl.png"))  //0
+            new ImageIcon(FP.getPath("user-xxl.png")), //0
+            new ImageIcon(FP.getPath("movie_list.png")) //1
     };
-    /*
     public static ImageIcon s1[] = {
             new ImageIcon(FP.getPath("01+.png")), //0
             new ImageIcon(FP.getPath("02+.png")), //1
@@ -49,5 +51,4 @@ public class design {
             new ImageIcon(FP.getPath("07+.png")), //6
             new ImageIcon(FP.getPath("08+.png"))  //7
     };
-    */
 }

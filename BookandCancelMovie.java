@@ -11,113 +11,83 @@ public class BookandCancelMovie implements ActionListener {
 
     JFrame frame = new JFrame("LOGGED IN");
     static JLabel label = new JLabel();
-    JLabel userIDLabel= new JLabel(cust.uname);
     JLabel accIcon = new JLabel();
-    //JLayeredPane layer = new JLayeredPane();
-    JButton myButton3 = new JButton("LOGOUT");
+    JButton myButton3 = new JButton("Log Out  "+cust.uname);
     JButton myButton2 = new JButton("Book a Movie");
     JButton myButton1 = new JButton("Cancel Booking");
     Timer timer = new Timer();                    //yx
     TimerTask task = new TimeKeeper2();            //yx
 
     public BookandCancelMovie() {
-        //layer.setPreferredSize(new Dimension(1250, 750));
-        //layer.setBounds(0, 0, 1250, 750);
 
         label = new JLabel("", JLabel.CENTER);
-        //add(label, BorderLayout.CENTER);
 
-        label.setIcon(design.s[0]);
+        label.setIcon(design.s1[0]);
         label.setBackground(new Color(50, 50, 50));
         label.setOpaque(true);
         label.setBounds(0, 0, 1250, 750);    //yx
         label.setHorizontalAlignment(JLabel.CENTER);
 
-
-        //account icon
-        accIcon.setIcon(design.img[0]);
-        accIcon.setBackground(new Color(50, 50, 50));
-        accIcon.setOpaque(true);
-        accIcon.setBounds(0, 0, 256, 256);    //yx
-        accIcon.setHorizontalAlignment(JLabel.CENTER);
-
-        //userIDLabel.setBounds(1045, 40,125,30);
-        userIDLabel.setBounds(500, 500,125,30);
-        //userIDLabel.setBackground(design.dgray);
-        userIDLabel.setBackground(Color.blue);
-        userIDLabel.setOpaque(true);
-        userIDLabel.setFont(design.sui20);
-        userIDLabel.setForeground(design.lgray);
-        userIDLabel.setHorizontalAlignment(JLabel.RIGHT);
-
         // default x=220 y=275 w=300 h=40
-        myButton1.setBounds(675, 40, 160, 40);    //yx
+        myButton1.setBounds(675, 45, 160, 40);    //yx
         myButton1.setVerticalAlignment(JLabel.CENTER);
-        myButton1.setBackground(design.yellow);
+        myButton1.setBackground(design.dgray);
+        myButton1.setForeground(design.lgray);
         myButton1.setFocusable(false);
         myButton1.setHorizontalAlignment(JLabel.CENTER);
         myButton1.setFont(design.ss15);    //yx
         myButton1.addActionListener(this);
 
-        myButton2.setBounds(505, 40, 160, 40);    //yx
+        myButton2.setBounds(520, 45, 160, 40);    //yx
         myButton2.setVerticalAlignment(JLabel.CENTER);
-        myButton2.setBackground(design.yellow);
+        myButton2.setBackground(design.dgray);
+        myButton2.setForeground(design.lgray);
         myButton2.setFocusable(false);
         myButton2.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(design.ss15);    //yx
+        myButton2.setFont(design.ss15);    //yx
         myButton2.addActionListener(this);
 
-        myButton3.setBounds(875, 40, 160, 40);    //yx
+        myButton3.setBounds(875, 45, 280, 40);    //yx
         myButton3.setVerticalAlignment(JLabel.CENTER);
-        myButton3.setBackground(design.yellow);
+        myButton3.setBackground(design.dgray);
+        myButton3.setForeground(design.lgray);
         myButton3.setFocusable(false);
-        myButton3.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(design.ss15);    //yx
+        myButton3.setHorizontalAlignment(JLabel.RIGHT);
+        myButton3.setFont(design.ss15);    //yx
         myButton3.addActionListener(this);
 
         label.add(myButton1);
         label.add(myButton2);
         label.add(myButton3);
-        //layer.add(label, 1);
-        //layer.add(userIDLabel, 2);
-        //layer.add(accIcon, 3);
-        //frame.add(layer);
         frame.add(label);
-        frame.add(userIDLabel);
-        frame.add(accIcon);
-        //frame.add(label);
         frame.setResizable(false);
-        //frame.setIconImage(icon.getImage());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setSize(750, 750);
         frame.setSize(1250, 750);    //yx
         frame.setLocationRelativeTo(null);
         frame.setLayout(null);
         frame.setVisible(true);
 
         timer.schedule(task, 0, 4000);   //yx
-        //timer.cancel();
-        //timer.purge();
     }
 
     public static long setImage(long n) {          //yx
         //System.out.println("setImage()");
         if (n % 8 == 0) {
-            label.setIcon(design.s[0]);
+            label.setIcon(design.s1[0]);
         } else if (n % 8 == 1) {
-            label.setIcon(design.s[1]);
+            label.setIcon(design.s1[1]);
         } else if (n % 8 == 2) {
-            label.setIcon(design.s[2]);
+            label.setIcon(design.s1[2]);
         } else if (n % 8 == 3) {
-            label.setIcon(design.s[3]);
+            label.setIcon(design.s1[3]);
         } else if (n % 8 == 4) {
-            label.setIcon(design.s[4]);
+            label.setIcon(design.s1[4]);
         } else if (n % 8 == 5) {
-            label.setIcon(design.s[5]);
+            label.setIcon(design.s1[5]);
         } else if (n % 8 == 6) {
-            label.setIcon(design.s[6]);
+            label.setIcon(design.s1[6]);
         } else if (n % 8 == 7) {
-            label.setIcon(design.s[7]);
+            label.setIcon(design.s1[7]);
         }
         n++;
         return n;
@@ -130,7 +100,7 @@ public class BookandCancelMovie implements ActionListener {
             frame.dispose();
         }
         if (e.getSource()==myButton2){
-            new BookMovie();
+            new BookMovie(movi.section);
             frame.dispose();
         }
         if (e.getSource()==myButton3){

@@ -45,7 +45,7 @@ public class CoverPage extends JFrame implements ActionListener {
         myButton2.setBackground(design.yellow);
         myButton2.setFocusable(false);
         myButton2.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(design.ss15);    //yx
+        myButton2.setFont(design.ss15);    //yx
         myButton2.addActionListener(this);
 
         myButton3.setBounds(1045, 40, 160, 40);    //yx
@@ -53,7 +53,7 @@ public class CoverPage extends JFrame implements ActionListener {
         myButton3.setBackground(design.yellow);
         myButton3.setFocusable(false);
         myButton3.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(design.ss15);    //yx
+        myButton3.setFont(design.ss15);    //yx
         myButton3.addActionListener(this);
 
         myButton4.setBounds(875, 40, 160, 40);    //yx
@@ -61,7 +61,7 @@ public class CoverPage extends JFrame implements ActionListener {
         myButton4.setBackground(design.yellow);
         myButton4.setFocusable(false);
         myButton4.setHorizontalAlignment(JLabel.CENTER);
-        myButton1.setFont(design.ss15);    //yx
+        myButton4.setFont(design.ss15);    //yx
         myButton4.addActionListener(this);
 
         label.add(myButton1);

@@ -8,7 +8,8 @@ public class movi{
     String showdate;
     ArrayList<String> casts = new ArrayList<String>();
     String synopsis;
-
+    public static ArrayList<ArrayList<ArrayList<String>>> arr = new ArrayList<ArrayList<ArrayList<String>>>();
+    public static int section=0;
     // constructor
     public movi (String name, String reldate, String showdate, String [] arr, String synopsis){
         this.name = name;
@@ -19,7 +20,7 @@ public class movi{
             this.casts.add(i);
         }
     }
-
-    static void getmovi(){}
-    static void addmovi(){}
+    public static void arrRESET(){
+        arr.clear();
+    }
 }
