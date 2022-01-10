@@ -461,45 +461,8 @@ public class BookMovie implements ActionListener {
         }
         String [] s = h.keySet().toArray(new String[0]);
         String [] m = {"January","February","March","April","May","June","July","August","September","October","November","December"};
-        String mon="";
         ArrayList<String> a = dbase.getMovies(0, title);
-        switch(a.get(2).substring(5,7)){
-            case "01":
-                mon=m[0];
-                break;
-            case "02":
-                mon=m[1];
-                break;
-            case "03":
-                mon=m[2];
-                break;
-            case "04":
-                mon=m[3];
-                break;
-            case "05":
-                mon=m[4];
-                break;
-            case "06":
-                mon=m[5];
-                break;
-            case "07":
-                mon=m[6];
-                break;
-            case "08":
-                mon=m[7];
-                break;
-            case "09":
-                mon=m[8];
-                break;
-            case "10":
-                mon=m[9];
-                break;
-            case "11":
-                mon=m[10];
-                break;
-            case "12":
-                mon=m[11];
-        }
+        String mon=m[Integer.parseInt(a.get(2).substring(5,7))-1];
         // YYYY-MM-DD
         // 0123456789        0-50  |-51              ||-73,74
         re += String.format("%-50s Released: %2s %-9s Showtimes: ", title, a.get(2).substring(8).charAt(0)=='0'?" "+a.get(2).substring(9):a.get(2).substring(8), mon);
