@@ -10,6 +10,7 @@ public class movi{
     String synopsis;
     public static ArrayList<ArrayList<ArrayList<String>>> arr = new ArrayList<ArrayList<ArrayList<String>>>();
     public static int section=0;
+    public static int section2=0;
     // constructor
     public movi (String name, String reldate, String showdate, String [] arr, String synopsis){
         this.name = name;

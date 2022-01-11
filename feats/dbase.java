@@ -634,7 +634,6 @@ public class dbase{
         return arr;
     }
     public static ArrayList<String> getMovies(int option, String searchValue){
-
         String[] listz = {"m_title","m_reldate","synopsis","adultp","studentp","childrenp"};
         String opt = listz[option];
         String query = "SELECT * FROM movies WHERE "+opt+"=\'"+searchValue+"\'";
@@ -756,7 +755,6 @@ public class dbase{
 
     //casts
     public static ArrayList<ArrayList<String>> getCasts(String m_title){
-
         String query = "SELECT * FROM casts WHERE m_title=\'"+m_title+"\'";
         ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();
         try {
@@ -908,6 +906,31 @@ public class dbase{
         }
         return max;
     } // DECICATED TO the update hall capacity function
+    public static int getSpecDTL_hallcap(String m_title, String m_date, String m_time, String m_hallno){
+        String query = "SELECT * FROM datetimeloc WHERE m_title=\'"+m_title+"\' AND m_date=\'"+m_date+"\' AND m_time=\'"+m_time+"\' AND m_hallno=\'"+m_hallno+"\'";
+        int cap=0;
+        try {
+            getConnection();
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            ResultSetMetaData rsmd = result.getMetaData();
+            //each row of data from DB
+            while(result.next()){
+                for(int i=1; i<=160; i++){
+                    if(Integer.parseInt(result.getString(i+6))==1){
+                        cap++;
+                    }
+                }
+            }
+            System.out.print("success - getDTL_hallmin()");
+            closeConnection();
+        } catch(Exception e){
+            System.out.print("ERROR:: getDTL_hallmin()");
+            closeConnection();
+            e.printStackTrace();
+        }
+        return cap;
+    }
     public static int addDTL_all(String m_title, ArrayList<ArrayList<String>> arr){
         int rowsInserted=0;
         try {

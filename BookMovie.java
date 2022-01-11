@@ -441,8 +441,6 @@ public class BookMovie implements ActionListener {
         if(movi.section!=movi.arr.size()-1){
             label.add(next);
         }
-
-
         frame.add(pgnum);
         frame.add(label);
         frame.setIconImage(icon.getImage());
@@ -511,35 +509,35 @@ public class BookMovie implements ActionListener {
 
         // book
         if (e.getSource()==myButton3){
-            new Detail1(movi.arr.get(movi.section).get(0).get(1));
+            new Detail1(movi.arr.get(movi.section).get(0).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton4){
-            new Detail1(movi.arr.get(movi.section).get(1).get(1));
+            new Detail1(movi.arr.get(movi.section).get(1).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton5){
-            new Detail1(movi.arr.get(movi.section).get(2).get(1));
+            new Detail1(movi.arr.get(movi.section).get(2).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton6){
-            new Detail1(movi.arr.get(movi.section).get(3).get(1));
+            new Detail1(movi.arr.get(movi.section).get(3).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton7){
-            new Detail1(movi.arr.get(movi.section).get(4).get(1));
+            new Detail1(movi.arr.get(movi.section).get(4).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton8){
-            new Detail1(movi.arr.get(movi.section).get(5).get(1));
+            new Detail1(movi.arr.get(movi.section).get(5).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton9){
-            new Detail1(movi.arr.get(movi.section).get(6).get(1));
+            new Detail1(movi.arr.get(movi.section).get(6).get(1), movi.section2);
             frame.dispose();
         }
         if (e.getSource()==myButton10){
-            new Detail1(movi.arr.get(movi.section).get(7).get(1));
+            new Detail1(movi.arr.get(movi.section).get(7).get(1), movi.section2);
             frame.dispose();
         }
     }
