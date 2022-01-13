@@ -24,7 +24,6 @@ public class cust{
     public static double t_amount;     // 66
     public static String t_cardtype;   // credit/debit
     public static String t_cardnum;    // 0000-0000-0000-0000
-    public static ArrayList<ArrayList<String>> seats = new ArrayList<ArrayList<String>>();
 
     // basic constructor (actually object not required, just summarise basic params to one method)
     public cust (String ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){

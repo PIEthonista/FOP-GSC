@@ -13,7 +13,6 @@ public class seat1 extends JFrame implements ActionListener {
     ImageIcon icon = new ImageIcon(FP.getPath("movie_list.png"));
     JFrame frame = new JFrame("LOGGED IN");
     JLabel label = new JLabel(), pgnum = new JLabel();
-    ArrayList<String> arr;
     ArrayList<ArrayList<String>> sop = new ArrayList<ArrayList<String>>();
     // JButton 1-160
     String [] lval = {"a01","a02","a03",
@@ -51,6 +50,11 @@ public class seat1 extends JFrame implements ActionListener {
                       "i14","i15","i16",
                       "j14","j15","j16"};
     JButton [] sr = new JButton[30];
+
+    JTextField adult = new JTextField();
+    JTextField child = new JTextField();
+    JTextField student = new JTextField();
+    JLabel num = new JLabel();
     JPanel panelL;
     JPanel panelM;
     JPanel panelR;
@@ -194,6 +198,11 @@ public class seat1 extends JFrame implements ActionListener {
         logout.setFont(design.ss15);    //yx
         logout.addActionListener(this);
 
+        num.setBounds(300, 900, 150, 20);
+        num.setOpaque(true);
+        num.setBackground(Color.BLUE);
+        num.setFont(design.ss)
+
 
         label.add(prevpage); // prev page
         label.add(logout);
@@ -257,6 +266,7 @@ public class seat1 extends JFrame implements ActionListener {
         System.out.println(cust.select);
         if (e.getSource()==prevpage){
             new Detail1(title, movi.section2);
+            cust.select.clear();
             frame.dispose();
         }
         if (e.getSource()==logout){
