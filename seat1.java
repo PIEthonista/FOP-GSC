@@ -54,7 +54,11 @@ public class seat1 extends JFrame implements ActionListener {
     JTextField adult = new JTextField();
     JTextField child = new JTextField();
     JTextField student = new JTextField();
+    JLabel ad = new JLabel();
+    JLabel ch = new JLabel();
+    JLabel st = new JLabel();
     JLabel num = new JLabel();
+    JButton next = new JButton("Next");
     JPanel panelL;
     JPanel panelM;
     JPanel panelR;
@@ -74,6 +78,7 @@ public class seat1 extends JFrame implements ActionListener {
         sop = SOP(arr);
 
         //test grounds
+        /*
         System.out.println("===== LEFT"+sop.get(0).size());
         int ind=0;
         for(int i=1; i<=10; i++){
@@ -103,6 +108,7 @@ public class seat1 extends JFrame implements ActionListener {
             ind+=3;
         }
         //END test grounds
+        */
 
 
         int x=42;
@@ -124,7 +130,7 @@ public class seat1 extends JFrame implements ActionListener {
                 sl[k].setBackground(design.mgray);
             }
             if(check(lval[k])){
-                sl[k].setBackground(design.lred);
+                sl[k].setBackground(design.orange);
             }
         }
         // Mid Panel
@@ -143,7 +149,7 @@ public class seat1 extends JFrame implements ActionListener {
                 sm[k].setBackground(design.mgray);
             }
             if(check(mval[k])){
-                sm[k].setBackground(design.lred);
+                sm[k].setBackground(design.orange);
             }
         }
         // Right Panel
@@ -162,7 +168,7 @@ public class seat1 extends JFrame implements ActionListener {
                 sr[k].setBackground(design.mgray);
             }
             if(check(rval[k])){
-                sr[k].setBackground(design.lred);
+                sr[k].setBackground(design.orange);
             }
         }
 
@@ -198,18 +204,83 @@ public class seat1 extends JFrame implements ActionListener {
         logout.setFont(design.ss15);    //yx
         logout.addActionListener(this);
 
-        num.setBounds(300, 900, 150, 20);
+        num.setBounds(193, 620, 190, 30);
         num.setOpaque(true);
-        num.setBackground(Color.BLUE);
-        num.setFont(design.ss)
+        num.setBackground(design.dgray);
+        num.setFont(design.ss17);
+        num.setForeground(design.lgray);
+        num.setHorizontalAlignment(JLabel.LEFT);
+        num.setText("Selected Seats: "+cust.select.size());
+
+        ad.setBounds(400, 620, 200, 30);
+        ad.setOpaque(true);
+        ad.setFont(design.ss15);
+        ad.setForeground(design.lgray);
+        ad.setBackground(design.dgray);
+        ad.setHorizontalAlignment(JLabel.RIGHT);
+        ad.setText("Enter quantity for Adult:");
+
+        adult.setBounds(600, 620, 50, 30);
+        adult.setOpaque(true);
+        adult.setFont(design.ss17);
+        adult.setForeground(design.lgray);
+        adult.setBackground(design.mdgray);
+        adult.setText("0");
+
+        ch.setBounds(680, 620, 70, 30);
+        ch.setOpaque(true);
+        ch.setFont(design.ss15);
+        ch.setForeground(design.lgray);
+        ch.setBackground(design.dgray);
+        ch.setHorizontalAlignment(JLabel.RIGHT);
+        ch.setText("Children:");
+
+        child.setBounds(750, 620, 50, 30);
+        child.setOpaque(true);
+        child.setFont(design.ss17);
+        child.setForeground(design.lgray);
+        child.setBackground(design.mdgray);
+        child.setText("0");
+
+        st.setBounds(830, 620, 70, 30);
+        st.setOpaque(true);
+        st.setFont(design.ss15);
+        st.setForeground(design.lgray);
+        st.setBackground(design.dgray);
+        st.setHorizontalAlignment(JLabel.RIGHT);
+        st.setText("Student:");
+
+        student.setBounds(900, 620, 50, 30);
+        student.setOpaque(true);
+        student.setFont(design.ss17);
+        student.setForeground(design.lgray);
+        student.setBackground(design.mdgray);
+        student.setText("0");
+
+        next.setBounds(1126,610,100,38);
+        next.setVerticalAlignment(JLabel.CENTER);
+        next.setBackground(design.yellow);
+        next.setForeground(design.dgray);
+        next.setFocusable(false);
+        next.setHorizontalAlignment(JLabel.CENTER);
+        next.setFont(design.sui15);    //yx
+        next.addActionListener(this);
 
 
         label.add(prevpage); // prev page
         label.add(logout);
+        label.add(next);
         frame.add(panelL);
         frame.add(panelM);
         frame.add(panelR);
         frame.add(pgnum);
+        frame.add(num);
+        frame.add(adult);
+        frame.add(student);
+        frame.add(child);
+        frame.add(ad);
+        frame.add(st);
+        frame.add(ch);
         frame.add(label);
         frame.setIconImage(icon.getImage());
         frame.setSize(1250,750);
@@ -225,13 +296,14 @@ public class seat1 extends JFrame implements ActionListener {
             if(e.getSource()==sl[i]){
                 if (sop.get(0).get(i).equals("0")) {
                     if(!check(lval[i])){
-                        sl[i].setBackground(design.lred);
+                        sl[i].setBackground(design.orange);
                         cust.select.add(lval[i]);
                     } else {
                         if(remove(lval[i])){
                             sl[i].setBackground(design.yellow);
                         }
                     }
+                    num.setText("Selected Seats: "+cust.select.size());
                 }
             }
         }
@@ -239,13 +311,14 @@ public class seat1 extends JFrame implements ActionListener {
             if(e.getSource()==sr[i]){
                 if (sop.get(2).get(i).equals("0")){
                     if(!check(rval[i])){
-                        sr[i].setBackground(design.lred);
+                        sr[i].setBackground(design.orange);
                         cust.select.add(rval[i]);
                     } else {
                         if(remove(rval[i])){
                             sr[i].setBackground(design.yellow);
                         }
                     }
+                    num.setText("Selected Seats: "+cust.select.size());
                 }
             }
         }
@@ -253,13 +326,14 @@ public class seat1 extends JFrame implements ActionListener {
             if(e.getSource()==sm[i]){
                 if (sop.get(1).get(i).equals("0")){
                     if(!check(mval[i])){
-                        sm[i].setBackground(design.lred);
+                        sm[i].setBackground(design.orange);
                         cust.select.add(mval[i]);
                     } else {
                         if(remove(mval[i])){
                             sm[i].setBackground(design.yellow);
                         }
                     }
+                    num.setText("Selected Seats: "+cust.select.size());
                 }
             }
         }
@@ -276,6 +350,35 @@ public class seat1 extends JFrame implements ActionListener {
             new CoverPage();
             frame.dispose();
         }
+        if (e.getSource()==next){
+            int adn=0, chn=0, stn=0;
+            try{
+                if(!(adult.getText().equals(""))){
+                    adn = Integer.parseInt(adult.getText());
+                }
+                if(!(child.getText().equals(""))){
+                    chn = Integer.parseInt(child.getText());
+                }
+                if(!(student.getText().equals(""))){
+                    stn = Integer.parseInt(student.getText());
+                }
+                if((adn+stn+chn)!=cust.select.size()){
+                    JOptionPane.showMessageDialog(null, "The numbers don't add up to the\namount of selected seats!");
+                } else{
+                    cust.adult=adn;
+                    cust.children=chn;
+                    cust.student=stn;
+                    cust.title = this.title;
+                    cust.date = this.date;
+                    cust.time = this.time;
+                    cust.hallno = this.hall;
+                    new FB();
+                    frame.dispose();
+                }
+            } catch(Exception ex) {
+                JOptionPane.showMessageDialog(null, "Please enter valid integers!");
+            }
+        }
     }
 
     public static ArrayList<ArrayList<String>> SOP(ArrayList<String> ori){
@@ -283,7 +386,6 @@ public class seat1 extends JFrame implements ActionListener {
         for(int i=6; i<=165; i++){
             arr.add(ori.get(i));
         }
-        System.out.println(arr.size());
         //separate to section L=30, M=100, R=30
         int lm=3, rm=12, bound=15;
         ArrayList<String> left = new ArrayList<String>();   // 30

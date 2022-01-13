@@ -142,7 +142,7 @@ public class SettingMovie implements ActionListener {
             frame.dispose();
         }
         if (e.getSource()==myButton2){
-            new DeleteMovieList();
+            //new DeleteMovieList();
             frame.dispose();
         }
         if (e.getSource()==myButton3){
@@ -157,7 +157,7 @@ public class SettingMovie implements ActionListener {
         }
         if (e.getSource()==myButton5){
             cust.RESET();
-            new AddFB();
+            //new AddFB();
             frame.dispose();
         }
         if (e.getSource()==myButton6){

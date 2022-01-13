@@ -8,4 +8,5 @@ import java.util.ArrayList;
 import feats.*;
 
 public class FB {
+    FB(){}
 }
