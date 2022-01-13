@@ -2,11 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import java.util.ArrayList;
 import feats.*;
 
 public class CustomerSignIn implements ActionListener {
+
     ImageIcon icon = new ImageIcon(FP.getPath("cust_signup.png"));
     JFrame frame = new JFrame("SIGN UP");
     JLabel label = new JLabel();
@@ -70,7 +70,6 @@ public class CustomerSignIn implements ActionListener {
         userPasswordLabel.setFont(design.sui20);
         userPasswordLabel.setForeground(design.lgray);
         userPasswordLabel.setHorizontalAlignment(JLabel.RIGHT);
-
 
         // Text Input Field
         nameLabelField.setBounds(700-x,425-75-75-75-y,450,30);
@@ -147,7 +146,6 @@ public class CustomerSignIn implements ActionListener {
         frame.add(messageLabel);
         frame.add(label);
         frame.setIconImage(icon.getImage());
-        frame.add(label);
         frame.setSize(1250,750);
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
