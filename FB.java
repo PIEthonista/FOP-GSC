@@ -478,11 +478,13 @@ public class FB implements ActionListener{
     public static void updfb(int sub, int f){
         Integer subj = sub;
         String subject = subj.toString();
+        ArrayList<String> temp = new ArrayList<String>();
         for(int i=0; i<cust.f_id.size(); i++){
-            if(cust.f_id.get(i).equals(subject)){
-                cust.f_id.remove(i);
+            if(!(cust.f_id.get(i).equals(subject))){
+                temp.add(cust.f_id.get(i));
             }
         }
+        cust.f_id=temp;
         for(int j=1; j<=f; j++){
             cust.f_id.add(subject);
         }
