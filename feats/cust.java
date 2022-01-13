@@ -15,7 +15,7 @@ public class cust{
     public static String date;         // YYYY-MM-DD
     public static String time;         // 18:30
     public static String hallno;       // 01
-    public static ArrayList<String> seats = new ArrayList<String>();  // i01,i05,i04
+    public static ArrayList<String> select = new ArrayList<String>();  // i01,i05,i04
     public static int adult;           // 2
     public static int student;         // 0
     public static int children;        // 1
@@ -24,6 +24,7 @@ public class cust{
     public static double t_amount;     // 66
     public static String t_cardtype;   // credit/debit
     public static String t_cardnum;    // 0000-0000-0000-0000
+    public static ArrayList<ArrayList<String>> seats = new ArrayList<ArrayList<String>>();
 
     // basic constructor (actually object not required, just summarise basic params to one method)
     public cust (String ID, String Name, String Email, String Uname, String Pswd, String PhoneNo){
@@ -47,7 +48,7 @@ public class cust{
         date=null;
         time=null;
         hallno=null;
-        seats.clear();
+        select.clear();
         adult=0;
         student=0;
         children=0;
