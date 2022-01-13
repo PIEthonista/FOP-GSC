@@ -369,6 +369,7 @@ public class Detail1 implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==prevpage){
+            movi.section2=0;
             new BookMovie(movi.section);
             frame.dispose();
         }

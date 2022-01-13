@@ -11,6 +11,8 @@ public class movi{
     public static ArrayList<ArrayList<ArrayList<String>>> arr = new ArrayList<ArrayList<ArrayList<String>>>();
     public static int section=0;
     public static int section2=0;
+    public static int fnb=0;
+    public static ArrayList<ArrayList<ArrayList<String>>> fb = new ArrayList<ArrayList<ArrayList<String>>>();
     // constructor
     public movi (String name, String reldate, String showdate, String [] arr, String synopsis){
         this.name = name;

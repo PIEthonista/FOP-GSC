@@ -337,7 +337,7 @@ public class seat1 extends JFrame implements ActionListener {
                 }
             }
         }
-        System.out.println(cust.select);
+        //System.out.println(cust.select);
         if (e.getSource()==prevpage){
             new Detail1(title, movi.section2);
             cust.select.clear();
@@ -372,7 +372,7 @@ public class seat1 extends JFrame implements ActionListener {
                     cust.date = this.date;
                     cust.time = this.time;
                     cust.hallno = this.hall;
-                    new FB();
+                    new FB(movi.fnb);
                     frame.dispose();
                 }
             } catch(Exception ex) {
