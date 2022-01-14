@@ -22,7 +22,7 @@ public class cust{
     public static ArrayList<String> f_id = new ArrayList<String>();   // 1,1,2,4   ##
     public static String t_date;       // YYYY-MM-DD             ##
     public static double t_amount;     // 66                     ##
-    public static String t_cardtype;   // credit/debit
+    public static String t_cardtype="";   // credit/debit
     public static String t_cardnum;    // 0000-0000-0000-0000    ##
     public static String t_time;       // HH:mm:ss
 
@@ -44,6 +44,10 @@ public class cust{
         uname=null;
         pswd=null;
         phoneno=null;
+        partialRESET();
+    }
+
+    public static void partialRESET(){
         title=null;
         date=null;
         time=null;
@@ -55,7 +59,7 @@ public class cust{
         f_id.clear();
         t_date=null;
         t_amount=0;
-        t_cardtype=null;
+        t_cardtype="";
         t_cardnum=null;
         t_time=null;
     }

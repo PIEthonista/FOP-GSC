@@ -161,39 +161,72 @@ public class Payment implements ActionListener{
             cust.t_cardtype="Debit";
         }
         if(e.getSource()==done){
-            String card = cardnum.getText();
-            if(checkCard(card)){
-                cust.t_cardnum=card;
-                boolean status=false;
-                try{
-                    LocalDate ld = LocalDate.now();
-                    cust.t_date=ld.toString();
+            if(cust.t_cardtype.equals("Credit") || cust.t_cardtype.equals("Debit")){
+                String card = cardnum.getText();
+                if(checkCard(card)){
+                    cust.t_cardnum=card;
+                    boolean status=false;
+                    try{
+                        LocalDate ld = LocalDate.now();
+                        cust.t_date=ld.toString();
 
-                    LocalDateTime DateTimeObj = LocalDateTime.now();
-                    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
-                    String HHmm = DateTimeObj.format(myFormatObj);
-                    cust.t_time = HHmm;
+                        LocalDateTime DateTimeObj = LocalDateTime.now();
+                        DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
+                        String HHmm = DateTimeObj.format(myFormatObj);
+                        cust.t_time = HHmm;
 
-                    // TODO GENERATE QR & SEND EMAIL
-                    TicketImage.genTicket();
-                    JOptionPane.showMessageDialog(null, "Please allow some time for us to\ngenerate and email you your ticket!");
-                    if(Email2.sendMessage(cust.email, true)){
-                        JOptionPane.showMessageDialog(null, "Your ticket has been sent to your\nemail: "+cust.email+"!\nCheck your MailBox!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Error sending ticket to your\nemail:"+cust.email+"!\nPlease check your WIFI connection\nor email validity.");
-                    }
-                    FP.delFile("movieticket.png");
-                    FP.delFile("qr.png");
-
-                    status=true;
-                    new Summary(status, this.txt);
-                    frame.dispose();
-                } catch (Exception ex){}
+                        String seats="";
+                        for(int i=0; i<cust.select.size(); i++){
+                            seats+=cust.select.get(i);
+                            if(i!=cust.select.size()-1){
+                                seats+=";";
+                            }
+                        }
+                        //System.out.println(seats);
+                        String fid="";
+                        for(int i=0; i<cust.f_id.size(); i++){
+                            fid+=cust.f_id.get(i);
+                            if(i!=cust.f_id.size()-1){
+                                fid+=";";
+                            }
+                        }
+                        //System.out.println(fid);
+                        dbase.addHistory(cust.uname, cust.title, cust.date, cust.time, cust.hallno, seats, cust.adult, cust.student, cust.children, fid, cust.t_date, (int)cust.t_amount, cust.t_cardtype, cust.t_cardnum);
+                        dbase.updSpecDTL_back(cust.title, cust.date, cust.time, cust.hallno, cust.select, 1);
+                        // TODO GENERATE QR & SEND EMAIL
+                        while(!status){
+                            status=doIMPORTANTstuff();
+                        }
+                        new Summary();
+                        frame.dispose();
+                    } catch (Exception ex){}
+                } else {
+                    JOptionPane.showMessageDialog(null, "Invalid Card Number.\nPlease re-enter again.");
+                }
             } else {
-                JOptionPane.showMessageDialog(null, "Invalid Card Number.\nPlease re-enter again.");
+                JOptionPane.showMessageDialog(null, "Please select card type.");
             }
+        }
+    }
+
+
+    public static boolean doIMPORTANTstuff(){
+        boolean status=false;
+        try{
+            TicketImage.genTicket();
+            JOptionPane.showMessageDialog(null, "Please allow some time for us to\ngenerate and email you your ticket!");
+            if(Email2.sendMessage(cust.email, true)){
+                JOptionPane.showMessageDialog(null, "Your ticket has been sent to your\nemail: "+cust.email+"!\nCheck your MailBox!");
+                status=true;
+            } else {
+                JOptionPane.showMessageDialog(null, "Error sending ticket to your\nemail:"+cust.email+"!\nPlease check your WIFI connection\nor email validity.\nClick OK to retry.");
+            }
+            FP.delFile("movieticket.png");
+            FP.delFile("qr.png");
+        } catch (Exception e){
 
         }
+        return status;
     }
 
     public static Integer getFreq(int n){

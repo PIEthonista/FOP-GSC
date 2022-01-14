@@ -25,7 +25,7 @@ public class Email2 {
     public static boolean sendMessage(String recepient, boolean sendImageOption) throws Exception {
         boolean status=false;
         try{
-            System.out.println("Preparing to send email");
+            System.out.println("MAIL :: Preparing");
             Properties properties = new Properties();
             properties.put("mail.smtp.auth","true");
             properties.put("mail.smtp.starttls.enable","true");
@@ -45,9 +45,10 @@ public class Email2 {
             Message message = prepareMessage(session, myAccountEmail, recepient, sendImageOption);
 
             Transport.send(message);
-            System.out.println("Message sent successfully");
+            System.out.println("MAIL :: SUCCESS");
             status=true;
         }catch(Exception e){
+            System.out.println("MAIL :: ERROR ::");
             e.printStackTrace();
         }
         return status;
@@ -61,7 +62,7 @@ public class Email2 {
             message.setSubject("Here's Your Ticket!");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("Dear "+cust.name+",\n\nThank you for booking "+cust.title+" with us! Here's your ticket!\n\nYour purchasing details are as below:\n-----------------------------------\n  - "+cust.t_cardtype+" Card No.: "+cust.t_cardnum+"\n  - Purchase Date: "+cust.t_date+"\n  - Purchase Time: "+cust.t_time+"\n  - Paid Amount: "+cust.t_amount+"\n\n\nRegards,\nTeam GSC Malaysia");
+            messageBodyPart.setText("Dear "+cust.name+",\n\nThank you for booking \""+cust.title+"\" with us!\nHere's your ticket!\n\nYour purchasing details are as below:\n-----------------------------------------------------\n  - "+cust.t_cardtype+" Card No.: "+cust.t_cardnum+"\n  - Purchase Date: "+cust.t_date+"\n  - Purchase Time: "+cust.t_time+"\n  - Paid Amount: "+cust.t_amount+"\n\n\nRegards,\nTeam GSC Malaysia.\n\n\n");
             MimeBodyPart messageBodyPart1 = new MimeBodyPart();
             if(sendImageOption){
                 // SUBJECT TO change to Ticket.png
