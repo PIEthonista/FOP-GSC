@@ -23,7 +23,7 @@ import javax.mail.internet.MimeMultipart;
 public class Email2 {
 
     public static boolean sendMessage(String recepient, boolean sendImageOption) throws Exception {
-        boolean status=true;
+        boolean status=false;
         try{
             System.out.println("Preparing to send email");
             Properties properties = new Properties();
@@ -46,8 +46,8 @@ public class Email2 {
 
             Transport.send(message);
             System.out.println("Message sent successfully");
+            status=true;
         }catch(Exception e){
-            status=false;
             e.printStackTrace();
         }
         return status;
@@ -58,15 +58,14 @@ public class Email2 {
             Message message = new MimeMessage(session);
             message.setFrom(new InternetAddress(myAccountEmail));
             message.setRecipient(Message.RecipientType.TO, new InternetAddress(recepient));
-            message.setSubject("Congratulations!");
+            message.setSubject("Here's Your Ticket!");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("Thank you for purchasing with us! Here's your ticket! Scan it for more info!");
-
+            messageBodyPart.setText("Dear "+cust.name+",\n\nThank you for booking "+cust.title+" with us! Here's your ticket!\n\nYour purchasing details are as below:\n-----------------------------------\n  - "+cust.t_cardtype+" Card No.: "+cust.t_cardnum+"\n  - Purchase Date: "+cust.t_date+"\n  - Purchase Time: "+cust.t_time+"\n  - Paid Amount: "+cust.t_amount+"\n\n\nRegards,\nTeam GSC Malaysia");
             MimeBodyPart messageBodyPart1 = new MimeBodyPart();
             if(sendImageOption){
                 // SUBJECT TO change to Ticket.png
-                String path = FP.getPath("qr.png");
+                String path = FP.getPath("movieticket.png");
                 messageBodyPart1.attachFile(path);
             }
             Multipart multipart = new MimeMultipart();

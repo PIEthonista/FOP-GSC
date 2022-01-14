@@ -5,7 +5,10 @@ import java.awt.event.ActionListener;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import feats.*;
 
@@ -150,23 +153,42 @@ public class Payment implements ActionListener{
         if(e.getSource()==credit){
             credit.setBackground(design.orange);
             debit.setBackground(design.yellow);
-            cust.t_cardtype="credit";
+            cust.t_cardtype="Credit";
         }
         if(e.getSource()==debit){
             debit.setBackground(design.orange);
             credit.setBackground(design.yellow);
-            cust.t_cardtype="debit";
+            cust.t_cardtype="Debit";
         }
         if(e.getSource()==done){
             String card = cardnum.getText();
             if(checkCard(card)){
                 cust.t_cardnum=card;
                 boolean status=false;
-                // TODO GENERATE QR & SEND EMAIL
-                LocalDate ld = LocalDate.now();
-                cust.t_date=ld.toString();
-                new Summary(status, this.txt);
-                frame.dispose();
+                try{
+                    LocalDate ld = LocalDate.now();
+                    cust.t_date=ld.toString();
+
+                    LocalDateTime DateTimeObj = LocalDateTime.now();
+                    DateTimeFormatter myFormatObj = DateTimeFormatter.ofPattern("HH:mm:ss");
+                    String HHmm = DateTimeObj.format(myFormatObj);
+                    cust.t_time = HHmm;
+
+                    // TODO GENERATE QR & SEND EMAIL
+                    TicketImage.genTicket();
+                    JOptionPane.showMessageDialog(null, "Please allow some time for us to\ngenerate and email you your ticket!");
+                    if(Email2.sendMessage(cust.email, true)){
+                        JOptionPane.showMessageDialog(null, "Your ticket has been sent to your\nemail: "+cust.email+"!\nCheck your MailBox!");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Error sending ticket to your\nemail:"+cust.email+"!\nPlease check your WIFI connection\nor email validity.");
+                    }
+                    FP.delFile("movieticket.png");
+                    FP.delFile("qr.png");
+
+                    status=true;
+                    new Summary(status, this.txt);
+                    frame.dispose();
+                } catch (Exception ex){}
             } else {
                 JOptionPane.showMessageDialog(null, "Invalid Card Number.\nPlease re-enter again.");
             }
