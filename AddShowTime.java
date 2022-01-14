@@ -8,7 +8,7 @@ import feats.*;
 public class AddShowTime implements ActionListener{
 
     ImageIcon icon = new ImageIcon(FP.getPath("movie_list.png"));
-    JFrame frame = new JFrame("Add Movie List");
+    JFrame frame = new JFrame("Add ShowTime List");
     JLabel label = new JLabel();
     JLabel Datelabel = new JLabel("Date");
     JLabel Timelabel = new JLabel("Time");
@@ -112,7 +112,6 @@ public class AddShowTime implements ActionListener{
         frame.setLocationRelativeTo(null);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
-
     }
 
     @Override

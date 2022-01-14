@@ -61,7 +61,7 @@ public class BookMovie implements ActionListener {
         pgnum.setForeground(design.mgray);
         pgnum.setText("Page "+(movi.section+1)+" / "+movi.arr.size());
 
-        prevpage.setBounds(675,28,200,40);
+        prevpage.setBounds(675,33,200,40);
         prevpage.setVerticalAlignment(JLabel.CENTER);
         prevpage.setBackground(design.dgray);
         prevpage.setForeground(design.lgray);
@@ -70,7 +70,7 @@ public class BookMovie implements ActionListener {
         prevpage.setFont(design.ss15);    //yx
         prevpage.addActionListener(this);
 
-        logout.setBounds(875, 28, 280, 40);    //yx
+        logout.setBounds(875, 33, 280, 40);    //yx
         logout.setVerticalAlignment(JLabel.CENTER);
         logout.setBackground(design.dgray);
         logout.setForeground(design.lgray);

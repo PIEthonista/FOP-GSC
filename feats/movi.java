@@ -7,6 +7,7 @@ public class movi{
     String reldate;
     String showdate;
     ArrayList<String> casts = new ArrayList<String>();
+    ArrayList<String> fnb = new ArrayList<String>();
     String synopsis;
     public static ArrayList<ArrayList<ArrayList<String>>> arr = new ArrayList<ArrayList<ArrayList<String>>>();
     public static int section=0;
