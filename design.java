@@ -22,6 +22,8 @@ public class design {
     public static Font ss15 = new Font("Sans Serif",Font.PLAIN, 15);
     public static Font ss17 = new Font("Sans Serif",Font.PLAIN, 17);
     public static Font ss20 = new Font("Sans Serif",Font.PLAIN, 20);
+    public static Font ss23 = new Font("Sans Serif",Font.PLAIN, 23);
+    public static Font ss26i = new Font("Sans Serif",Font.ITALIC, 26);
     public static Font ss20i = new Font("Sans Serif",Font.ITALIC, 20);
     public static Font ss30i = new Font("Sans Serif",Font.ITALIC, 30);
 

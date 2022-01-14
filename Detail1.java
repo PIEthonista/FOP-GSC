@@ -103,6 +103,7 @@ public class Detail1 implements ActionListener {
         rel = new JTextArea("Released : "+getDate(d.get(2))+" "+d.get(2).substring(0,4)+"\nFeaturing: "+cs+"\n\n"+sy);
         rel.setBackground(design.dgray);
         rel.setOpaque(true);
+        rel.setFocusable(false);
         //rel.setHorizontalAlignment(JLabel.LEFT);
         //rel.setVerticalAlignment(JLabel.TOP);
         rel.setFont(design.ss15);

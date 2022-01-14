@@ -668,6 +668,6 @@ public class FB implements ActionListener{
                 JOptionPane.showMessageDialog(null, "Please enter valid integers!");
             }
         }
-        System.out.println(cust.f_id);
+        //System.out.println(cust.f_id);
     }
 }
