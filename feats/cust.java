@@ -16,6 +16,7 @@ public class cust{
     public static String time;         // 18:30        ##
     public static String hallno;       // 01           ##
     public static ArrayList<String> select = new ArrayList<String>();  // i01,i05,i04   ##
+    public static ArrayList<ArrayList<String>> todel = new ArrayList<ArrayList<String>>();
     public static int adult;           // 2            ##
     public static int student;         // 0            ##
     public static int children;        // 1            ##
@@ -62,5 +63,6 @@ public class cust{
         t_cardtype="";
         t_cardnum=null;
         t_time=null;
+        todel.clear();
     }
 }

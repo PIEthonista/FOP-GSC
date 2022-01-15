@@ -96,7 +96,7 @@ public class BookandCancelMovie implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()== myButton1){
-            new CancelMovie();
+            new CancelMovie(movi.section3);
             frame.dispose();
         }
         if (e.getSource()==myButton2){

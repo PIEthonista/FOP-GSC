@@ -25,6 +25,7 @@ public class Email2 {
     public static boolean sendMessage(String recepient, boolean sendImageOption) throws Exception {
         boolean status=false;
         try{
+            System.out.println("=================");
             System.out.println("MAIL :: Preparing");
             Properties properties = new Properties();
             properties.put("mail.smtp.auth","true");
@@ -46,9 +47,11 @@ public class Email2 {
 
             Transport.send(message);
             System.out.println("MAIL :: SUCCESS");
+            System.out.println("=================");
             status=true;
         }catch(Exception e){
             System.out.println("MAIL :: ERROR ::");
+            System.out.println("=================");
             e.printStackTrace();
         }
         return status;

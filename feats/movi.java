@@ -9,8 +9,12 @@ public class movi{
     ArrayList<String> casts = new ArrayList<String>();
     String synopsis;
     public static ArrayList<ArrayList<ArrayList<String>>> arr = new ArrayList<ArrayList<ArrayList<String>>>();
+    public static ArrayList<ArrayList<ArrayList<String>>> hist = new ArrayList<ArrayList<ArrayList<String>>>();
+    public static ArrayList<ArrayList<ArrayList<String>>> disp = new ArrayList<ArrayList<ArrayList<String>>>();
     public static int section=0;
     public static int section2=0;
+    public static int section3=0;
+    public static int section4=0;
     public static int fnb=0;
     public static ArrayList<ArrayList<ArrayList<String>>> fb = new ArrayList<ArrayList<ArrayList<String>>>();
     // constructor

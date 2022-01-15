@@ -15,7 +15,7 @@ public class dbase{
     static Statement statement;
     private static String uname = "root";
 
-    // CHANGE TO YOUR LOCAL MySQL Password
+    // Development state: CHANGE TO YOUR LOCAL MySQL Password
     private static String password = "J0hnLegend";
 
     private static String url = "jdbc:mysql://localhost:3306/FOPGSC";
@@ -536,13 +536,18 @@ public class dbase{
         }
         return rowsInserted;
     }
-    public static int delHistory(String uname){
-        String query = "DELETE FROM history WHERE h_uname=?";
+    public static int delHistory(String uname, String title, String date, String time, String hall, String seats){
+        String query = "DELETE FROM history WHERE h_uname=? AND h_title=? AND h_date=? AND h_time=? AND h_hallno=? AND h_seats=?";
         int rowsDeleted=0;
         try {
             getConnection();
             PreparedStatement statement = con.prepareStatement(query);
             statement.setString(1, uname);
+            statement.setString(2, title);
+            statement.setString(3, date);
+            statement.setString(4, time);
+            statement.setString(5, hall);
+            statement.setString(6, seats);
             rowsDeleted = statement.executeUpdate();
             if( rowsDeleted > 0) {
                 System.out.print("success - delHistory()");
@@ -821,7 +826,7 @@ public class dbase{
         return rowsDeleted;
     }
 
-    //datetimeloc
+    //datetimeloc DTL
     public static ArrayList<ArrayList<String>> getDTL_front(String m_title){
         String query = "SELECT m_id, m_title, m_date, m_time, m_hallno, m_capacity FROM datetimeloc WHERE m_title=\'"+m_title+"\'";
         ArrayList<ArrayList<String>> arr = new ArrayList<ArrayList<String>>();

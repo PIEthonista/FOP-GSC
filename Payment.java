@@ -175,21 +175,29 @@ public class Payment implements ActionListener{
                         String HHmm = DateTimeObj.format(myFormatObj);
                         cust.t_time = HHmm;
 
-                        String seats="";
-                        for(int i=0; i<cust.select.size(); i++){
-                            seats+=cust.select.get(i);
-                            if(i!=cust.select.size()-1){
-                                seats+=";";
+                        String seats=" ";
+                        if(cust.select.size()>0){
+                            seats="";
+                            for(int i=0; i<cust.select.size(); i++){
+                                seats+=cust.select.get(i);
+                                if(i!=cust.select.size()-1){
+                                    seats+=";";
+                                }
                             }
                         }
+
                         //System.out.println(seats);
-                        String fid="";
-                        for(int i=0; i<cust.f_id.size(); i++){
-                            fid+=cust.f_id.get(i);
-                            if(i!=cust.f_id.size()-1){
-                                fid+=";";
+                        String fid=" ";
+                        if(cust.f_id.size()>0){
+                            fid="";
+                            for(int i=0; i<cust.f_id.size(); i++){
+                                fid+=cust.f_id.get(i);
+                                if(i!=cust.f_id.size()-1){
+                                    fid+=";";
+                                }
                             }
                         }
+
                         //System.out.println(fid);
                         dbase.addHistory(cust.uname, cust.title, cust.date, cust.time, cust.hallno, seats, cust.adult, cust.student, cust.children, fid, cust.t_date, (int)cust.t_amount, cust.t_cardtype, cust.t_cardnum);
                         dbase.updSpecDTL_back(cust.title, cust.date, cust.time, cust.hallno, cust.select, 1);
@@ -197,6 +205,7 @@ public class Payment implements ActionListener{
                         while(!status){
                             status=doIMPORTANTstuff();
                         }
+
                         new Summary();
                         frame.dispose();
                     } catch (Exception ex){}
