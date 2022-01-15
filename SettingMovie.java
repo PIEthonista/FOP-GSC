@@ -20,7 +20,7 @@ public class SettingMovie implements ActionListener {
     JButton myButton2 = new JButton("Delete Movie List");
     JButton myButton1 = new JButton("Add Movie List");
     Timer timer = new Timer();
-    TimerTask task = new TimeKeeper2();
+    TimerTask task = new TimeKeeper3();
 
     public SettingMovie() {
 

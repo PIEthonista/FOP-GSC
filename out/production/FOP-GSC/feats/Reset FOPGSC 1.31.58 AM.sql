@@ -6,6 +6,7 @@ RUN WITH CAUTION!
 CREATE DATABASE FOPGSC;
 */
 USE FOPGSC;
+#SELECT * FROM history;
 
 
 DROP TABLE customer;
@@ -365,8 +366,8 @@ INSERT INTO casts(m_title, c_name, c_char) VALUES("Your Name", "Ryo Narita", "Ka
 INSERT INTO casts(m_title, c_name, c_char) VALUES("Your Name", "Aoi Yūki", "Sayaka Natori");
 INSERT INTO casts(m_title, c_name, c_char) VALUES("Your Name", "Nobunaga Shimazaki", "Tsukasa Fujii");
 
-/* datetimeloc *//*                                                    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32  */
-INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, i04, i05, i10, i11, i12, i13, j05, j06, j10, j11, h04, h05, h06, h07, h08, h11, h12, f09, f10, f11, g14, g15, h14, h15, h01, h02, h03, e04, e05, e07, d12, d13) VALUES("Spider-Man: No Way Home", "2021-12-17", "08:00", "01", 80, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
+/* datetimeloc *//*                                                    1    2    3    4    5    6    7    8    9    10   11   12   13   14   15   16   17   18   19   20   21   22   23   24   25   26   27   28   29   30   31   32   33 */
+INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, i02, i04, i05, i10, i11, i12, i13, j05, j06, j10, j11, h04, h05, h06, h07, h08, h11, h12, f09, f10, f11, g14, g15, h14, h15, h01, h02, h03, e04, e05, e07, d12, d13) VALUES("Spider-Man: No Way Home", "2021-12-17", "08:00", "01", 80, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, j05, j06, j07, i06, i10, i11, i12, i13, j10, j11, j12, j13, i14, j14, j15) VALUES("Spider-Man: No Way Home", "2021-12-17", "10:00", "05", 80, 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1);
 INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "12:00", "13", 80);
 INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity) VALUES("Spider-Man: No Way Home", "2021-12-17", "14:00", "09", 80);
