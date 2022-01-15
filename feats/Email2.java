@@ -65,7 +65,7 @@ public class Email2 {
             message.setSubject("Here's Your Ticket!");
 
             MimeBodyPart messageBodyPart = new MimeBodyPart();
-            messageBodyPart.setText("Dear "+cust.name+",\n\nThank you for booking \""+cust.title+"\" with us!\nHere's your ticket!\n\nYour purchasing details are as below:\n-----------------------------------------------------\n  - "+cust.t_cardtype+" Card No.: "+cust.t_cardnum+"\n  - Purchase Date: "+cust.t_date+"\n  - Purchase Time: "+cust.t_time+"\n  - Paid Amount: "+cust.t_amount+"\n\n\nRegards,\nTeam GSC Malaysia.\n\n\n");
+            messageBodyPart.setText("Dear "+cust.name+",\n\nThank you for booking \""+cust.title+"\" with us!\nHere's your ticket!\n\nYour purchasing details are as below:\n-----------------------------------------------------\n  - "+cust.t_cardtype+" Card No.: "+cust.t_cardnum+"\n  - Purchase Date: "+cust.t_date+"\n  - Purchase Time: "+cust.t_time+"\n  - Paid Amount: MYR "+cust.t_amount+"\n\n\nRegards,\nTeam GSC Malaysia.\n\n\n");
             MimeBodyPart messageBodyPart1 = new MimeBodyPart();
             if(sendImageOption){
                 // SUBJECT TO change to Ticket.png
