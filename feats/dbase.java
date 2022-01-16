@@ -928,10 +928,10 @@ public class dbase{
                     }
                 }
             }
-            System.out.print("success - getDTL_hallmin()");
+            System.out.print("success - getSpecDTL_hallcap()");
             closeConnection();
         } catch(Exception e){
-            System.out.print("ERROR:: getDTL_hallmin()");
+            System.out.print("ERROR:: getSpecDTL_hallcap()");
             closeConnection();
             e.printStackTrace();
         }
@@ -1046,13 +1046,32 @@ public class dbase{
             for(String i : hm.keySet()){
                 arr.add(i);
             }
-            System.out.print("success - getDTL_hallmin()");
+            System.out.print("success - getDTL_uniquehall()");
             closeConnection();
         } catch(Exception e){
-            System.out.print("ERROR:: getDTL_hallmin()");
+            System.out.print("ERROR:: getDTL_uniquehall()");
             closeConnection();
             e.printStackTrace();
         }
         return arr;
     } // DECICATED TO the update hall capacity function
+    public static int updDTL_hallno(String hallno, String cap){
+        String query = "UPDATE datetimeloc SET m_capacity="+cap+" WHERE m_hallno=?";
+        int rowsUpdated=0;
+        try {
+            getConnection();
+            PreparedStatement statement = con.prepareStatement(query);
+            statement.setString(1, hallno);
+            rowsUpdated  = statement.executeUpdate();
+            if( rowsUpdated > 0) {
+                System.out.print("success - updDTL_hallno()");
+            }
+            closeConnection();
+        } catch(Exception e) {
+            System.out.print("ERROR:: updDTL_hallno()");
+            closeConnection();
+            e.printStackTrace();
+        }
+        return rowsUpdated;
+    }
 }
