@@ -279,6 +279,7 @@ INSERT INTO customer VALUES(22,'Tan Boon Teik', 'tantan@gmail.com', 'tantan', 't
 INSERT INTO customer VALUES(23,'Samuel Tan', 'samsam@gmail.com', 'Samuel', 'samsam123', '0132535553');
 INSERT INTO customer VALUES(24,'Danny Lee', 'danny123@gmail.com', 'Danny1212', 'xxxxoooo', '0128493583');
 INSERT INTO customer VALUES(25,'Lim Chen Kang', 'chenkang@gmail.com', 'ChenKang', '123456789', '0128224243');
+INSERT INTO customer VALUES(26,'Low Xing Ping', 'gohyixian456@gmail.com', 'a', 'a', '0128224243');
 
 INSERT INTO customer(c_name, c_email, c_uname, c_pswd, c_phno) VALUES('Tan Hui Xin', 'huixin@gmail.com', 'hx02', 'ronytanyikhai', '0189237564');
 

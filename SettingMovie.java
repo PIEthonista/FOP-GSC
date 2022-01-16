@@ -9,16 +9,15 @@ import feats.*;
 
 public class SettingMovie implements ActionListener {
 
-    JFrame frame = new JFrame("Setting The Movie");
+    JFrame frame = new JFrame("Staff: LOGGED IN");
     static JLabel label = new JLabel();
     JLabel accIcon = new JLabel();
     JButton myButton7 = new JButton("Log Out  "+staff.uname);
     JButton myButton6 = new JButton("Delete Food & Beverage");
     JButton myButton5 = new JButton("Add Food & Beverage");
-    JButton myButton4 = new JButton("Movie Price");
-    JButton myButton3 = new JButton("Theater Capacity");
-    JButton myButton2 = new JButton("Delete Movie List");
-    JButton myButton1 = new JButton("Add Movie List");
+    JButton myButton3 = new JButton("Set Theater Capacity");
+    JButton myButton2 = new JButton("Remove Movies");
+    JButton myButton1 = new JButton("Add Movies");
     Timer timer = new Timer();
     TimerTask task = new TimeKeeper3();
 
@@ -59,15 +58,6 @@ public class SettingMovie implements ActionListener {
         myButton3.setFont(design.ss15);
         myButton3.addActionListener(this);
 
-        myButton4.setBounds(225, 45, 200, 40);
-        myButton4.setVerticalAlignment(JLabel.CENTER);
-        myButton4.setBackground(design.dgray);
-        myButton4.setForeground(design.lgray);
-        myButton4.setFocusable(false);
-        myButton4.setHorizontalAlignment(JLabel.CENTER);
-        myButton4.setFont(design.ss15);
-        myButton4.addActionListener(this);
-
         myButton5.setBounds(425, 45, 200, 40);
         myButton5.setVerticalAlignment(JLabel.CENTER);
         myButton5.setBackground(design.dgray);
@@ -98,7 +88,6 @@ public class SettingMovie implements ActionListener {
         label.add(myButton1);
         label.add(myButton2);
         label.add(myButton3);
-        label.add(myButton4);
         label.add(myButton5);
         label.add(myButton6);
         label.add(myButton7);
@@ -142,31 +131,23 @@ public class SettingMovie implements ActionListener {
             frame.dispose();
         }
         if (e.getSource()==myButton2){
-            //new DeleteMovieList();
+            new DeleteMovieList(staff.section);
             frame.dispose();
         }
         if (e.getSource()==myButton3){
-            cust.RESET();
             new TheaterCapacity();
             frame.dispose();
         }
-        if (e.getSource()==myButton4){
-            cust.RESET();
-            new MoviePrice();
-            frame.dispose();
-        }
         if (e.getSource()==myButton5){
-            cust.RESET();
-            //new AddFB();
+            new AddFB();
             frame.dispose();
         }
         if (e.getSource()==myButton6){
-            cust.RESET();
-            new DeleteFB();
+            new DeleteFB(staff.section3);
             frame.dispose();
         }
         if (e.getSource()==myButton7){
-            cust.RESET();
+            staff.RESET();
             new CoverPage();
             frame.dispose();
         }

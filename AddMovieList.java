@@ -8,7 +8,7 @@ import feats.*;
 public class AddMovieList implements ActionListener {
 
     ImageIcon icon = new ImageIcon(FP.getPath("movie_list.png"));
-    JFrame frame = new JFrame("Add Movie List");
+    JFrame frame = new JFrame("Staff: LOGGED IN");
     JLabel label = new JLabel();
     JLabel Titlelabel = new JLabel("Title");
     JLabel ReleaseDatelabel = new JLabel("Release Date");
@@ -25,6 +25,7 @@ public class AddMovieList implements ActionListener {
     JButton prevpage = new JButton("Previous Page");
     JButton Next = new JButton("Next");
     JButton logout = new JButton("Log Out  "+staff.uname);
+    String rel;
 
     public AddMovieList() {
 
@@ -55,21 +56,21 @@ public class AddMovieList implements ActionListener {
         Synopsislabel.setForeground(design.lgray);
         Synopsislabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        Adultplabel.setBounds(200, 375, 125, 30);
+        Adultplabel.setBounds(125, 375, 200, 30);
         Adultplabel.setBackground(design.dgray);
         Adultplabel.setOpaque(true);
         Adultplabel.setFont(design.sui20);
         Adultplabel.setForeground(design.lgray);
         Adultplabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        Childrenplabel.setBounds(200, 450, 125, 30);
+        Childrenplabel.setBounds(125, 450, 200, 30);
         Childrenplabel.setBackground(design.dgray);
         Childrenplabel.setOpaque(true);
         Childrenplabel.setFont(design.sui20);
         Childrenplabel.setForeground(design.lgray);
         Childrenplabel.setHorizontalAlignment(JLabel.RIGHT);
 
-        Studentplabel.setBounds(200, 525, 125, 30);
+        Studentplabel.setBounds(125, 525, 200, 30);
         Studentplabel.setBackground(design.dgray);
         Studentplabel.setOpaque(true);
         Studentplabel.setFont(design.sui20);
@@ -86,6 +87,7 @@ public class AddMovieList implements ActionListener {
         ReleaseDateField.setFont(design.ss20i);
         ReleaseDateField.setForeground(design.mgray);
         ReleaseDateField.setBackground(design.lgray);
+        ReleaseDateField.setText("YYYY-MM-DD");
 
         SynopsisField.setBounds(375, 300, 700, 30);
         SynopsisField.setFont(design.ss20i);
@@ -127,7 +129,7 @@ public class AddMovieList implements ActionListener {
 
         Next.setBounds(1000,600,160,38);
         Next.setVerticalAlignment(JLabel.CENTER);
-        Next.setBackground(design.mgray);
+        Next.setBackground(design.yellow);
         Next.setFocusable(false);
         Next.setHorizontalAlignment(JLabel.CENTER);
         Next.setFont(design.ss15);
@@ -159,16 +161,61 @@ public class AddMovieList implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource()==Next){
-            new Addcast();
-            frame.dispose();
+            String title=TitleField.getText();
+            String reldate=ReleaseDateField.getText();
+            String synopsis=SynopsisField.getText();
+            String adult=AdultpField.getText();
+            String children=ChildrenpField.getText();
+            String student=StudentpField.getText();
+            if(synopsis.length()<1001){
+                if(checkDate(reldate)){
+                    try{
+                        int ad = Integer.parseInt(adult);
+                        int ch = Integer.parseInt(children);
+                        int st = Integer.parseInt(student);
+                        staff.title=title;
+                        dbase.addMovies(title,reldate,synopsis,ad,st,ch);
+                        new Addcast();
+                        frame.dispose();
+                    } catch (Exception ex){
+                        JOptionPane.showMessageDialog(null, "Only Integers are allowed\nfor the various price fields.");
+                    }
+                } else {
+                    JOptionPane.showMessageDialog(null, "Please enter a valid release date\naccording to the format of\nYYYY-MM-DD.");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "The maximum allowed characters\nfor synopsis is 1000 characters.");
+            }
+
         }
         if (e.getSource()==prevpage){
+            staff.title=null;
             new SettingMovie();
             frame.dispose();
         }
         if (e.getSource()==logout){
+            staff.RESET();
             new CoverPage();
             frame.dispose();
         }
+    }
+
+    public static boolean checkDate(String date){
+        boolean re=false;
+        // YYYY-MM-DD
+        // 0123456789
+        if(date.length()==10){
+            if(date.charAt(4)=='-' && date.charAt(7)=='-'){
+                try{
+                    Integer.parseInt(date.substring(0,4));
+                    if(Integer.parseInt(date.substring(5,7))<=12){
+                        if(Integer.parseInt(date.substring(8))<=31){
+                            re=true;
+                        }
+                    }
+                } catch(Exception e){}
+            }
+        }
+        return re;
     }
 }

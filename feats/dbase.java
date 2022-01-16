@@ -946,9 +946,8 @@ public class dbase{
                 statement.setString(1, m_title);
                 statement.setString(2, arr.get(i).get(0));
                 statement.setString(3, arr.get(i).get(1));
-                statement.setString(3, arr.get(i).get(2));
-                statement.setString(3, arr.get(i).get(3));
-                statement.setString(3, arr.get(i).get(4));
+                statement.setString(4, arr.get(i).get(2));
+                statement.setString(5, arr.get(i).get(3));
                 rowsInserted += statement.executeUpdate();
             }
             if (rowsInserted > 0) {

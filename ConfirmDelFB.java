@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.Set;
 import feats.*;
 
-public class Confirm_Delete implements ActionListener {
+public class ConfirmDelFB implements ActionListener {
 
     ImageIcon icon = new ImageIcon(FP.getPath("movie_list.png"));
     JFrame frame = new JFrame("Staff: LOGGED IN");
@@ -24,9 +24,9 @@ public class Confirm_Delete implements ActionListener {
     JButton prev = new JButton("Previous"), next = new JButton("Next");
     JButton done = new JButton("Confirm");
 
-    Confirm_Delete(int n) {
-        arr = staff.todel;
-        staff.disp.clear();
+    ConfirmDelFB(int n) {
+        arr = staff.fnbtodel;
+        staff.fnbdisp.clear();
         int i = 0;
         int sec;
         // 1D=Spec movie ArrList,  2D=Page ArrList, 3D=Page Container
@@ -36,7 +36,7 @@ public class Confirm_Delete implements ActionListener {
                 temp.add(arr.get(i));
                 i++;
             }
-            staff.disp.add(temp);
+            staff.fnbdisp.add(temp);
         }
         if (arr.size() % 4 != 0) {
             ArrayList<ArrayList<String>> temp = new ArrayList<ArrayList<String>>();
@@ -44,7 +44,7 @@ public class Confirm_Delete implements ActionListener {
                 temp.add(arr.get(i));
                 i++;
             }
-            staff.disp.add(temp);
+            staff.fnbdisp.add(temp);
         }
 
         label1.setBackground(new Color(50, 50, 50));
@@ -61,7 +61,7 @@ public class Confirm_Delete implements ActionListener {
         ttl.setForeground(design.white);
         ttl.setBounds(24, 100, 1000, 60);
 
-        rel = new JTextArea("Are you sure to remove the following movies?\nThere will be no undo-ings.\nYou can head back to the previous page to edit your delete selections.");
+        rel = new JTextArea("Are you sure to remove the following F&B?\nThere will be no undo-ings.\nYou can head back to the previous page to edit your delete selections.");
         rel.setBackground(design.dgray);
         rel.setOpaque(true);
         rel.setFocusable(false);
@@ -76,7 +76,7 @@ public class Confirm_Delete implements ActionListener {
         pgnum.setHorizontalAlignment(JLabel.CENTER);
         pgnum.setFont(design.ss13);
         pgnum.setForeground(design.mgray);
-        pgnum.setText("Page " + (staff.section2 + 1) + " / " + staff.disp.size());
+        pgnum.setText("Page " + (staff.section4 + 1) + " / " + staff.fnbdisp.size());
 
         prevpage.setBounds(675, 33, 200, 40);
         prevpage.setVerticalAlignment(JLabel.CENTER);
@@ -126,7 +126,7 @@ public class Confirm_Delete implements ActionListener {
         int y = 20;
         int y1 = 5; //10
         int y2 = 15;
-        int c = staff.disp.get(staff.section2).size();
+        int c = staff.fnbdisp.get(staff.section4).size();
 
 
         if(1<=c){
@@ -137,7 +137,7 @@ public class Confirm_Delete implements ActionListener {
             frame.add(ln6);
             //
             //String t6=getText(movi.arr.get(movi.section).get(3).get(1));
-            l6 = new JLabel(staff.disp.get(staff.section2).get(0).get(1));
+            l6 = new JLabel(staff.fnbdisp.get(staff.section4).get(0).get(1));
             l6.setBounds(40, 350+y2, 500, 38);
             l6.setOpaque(true);
             l6.setBackground(design.dgray);
@@ -145,7 +145,7 @@ public class Confirm_Delete implements ActionListener {
             l6.setFont(design.ss20i);
             frame.add(l6);
             int q=0;
-            l66 = new JLabel("Release date: "+staff.disp.get(staff.section2).get(0).get(2));
+            l66 = new JLabel("Unit Price: MYR "+staff.fnbdisp.get(staff.section4).get(0).get(3)+"    ("+staff.fnbdisp.get(staff.section4).get(0).get(2)+")");
             l66.setBounds(550, 350+2+y2, 580, 38);
             l66.setOpaque(true);
             l66.setBackground(design.dgray);
@@ -161,7 +161,7 @@ public class Confirm_Delete implements ActionListener {
             frame.add(ln7);
             //
             //String t7=getText(movi.arr.get(movi.section).get(4).get(1));
-            l7 = new JLabel(staff.disp.get(staff.section2).get(1).get(1));
+            l7 = new JLabel(staff.fnbdisp.get(staff.section4).get(1).get(1));
             l7.setBounds(40, 413+y2, 500, 38);
             l7.setOpaque(true);
             l7.setBackground(design.dgray);
@@ -169,7 +169,7 @@ public class Confirm_Delete implements ActionListener {
             l7.setFont(design.ss20i);
             frame.add(l7);
             int q=1;
-            l77 = new JLabel("Release date: "+staff.disp.get(staff.section2).get(1).get(2));
+            l77 = new JLabel("Unit Price: MYR "+staff.fnbdisp.get(staff.section4).get(1).get(3)+"    ("+staff.fnbdisp.get(staff.section4).get(1).get(2)+")");
             l77.setBounds(550, 413+2+y2, 580, 38);
             l77.setOpaque(true);
             l77.setBackground(design.dgray);
@@ -185,7 +185,7 @@ public class Confirm_Delete implements ActionListener {
             frame.add(ln8);
             //
             //String t8=getText(movi.arr.get(movi.section).get(5).get(1));
-            l8 = new JLabel(staff.disp.get(staff.section2).get(2).get(1));
+            l8 = new JLabel(staff.fnbdisp.get(staff.section4).get(2).get(1));
             l8.setBounds(40, 475+y2, 500, 38);
             l8.setOpaque(true);
             l8.setBackground(design.dgray);
@@ -193,7 +193,7 @@ public class Confirm_Delete implements ActionListener {
             l8.setFont(design.ss20i);
             frame.add(l8);
             int q=2;
-            l88 = new JLabel("Release date: "+staff.disp.get(staff.section2).get(2).get(2));
+            l88 = new JLabel("Unit Price: MYR "+staff.fnbdisp.get(staff.section4).get(2).get(3)+"    ("+staff.fnbdisp.get(staff.section4).get(2).get(2)+")");
             l88.setBounds(550, 475+2+y2, 580, 38);
             l88.setOpaque(true);
             l88.setBackground(design.dgray);
@@ -209,7 +209,7 @@ public class Confirm_Delete implements ActionListener {
             frame.add(ln9);
             //
             //String t9=getText(movi.arr.get(movi.section).get(6).get(1));
-            l9 = new JLabel(staff.disp.get(staff.section2).get(3).get(1));
+            l9 = new JLabel(staff.fnbdisp.get(staff.section4).get(3).get(1));
             l9.setBounds(40, 538+y2, 500, 38);
             l9.setOpaque(true);
             l9.setBackground(design.dgray);
@@ -217,7 +217,7 @@ public class Confirm_Delete implements ActionListener {
             l9.setFont(design.ss20i);
             frame.add(l9);
             int q=3;
-            l99 = new JLabel("Release date: "+staff.disp.get(staff.section2).get(3).get(2));
+            l99 = new JLabel("Unit Price: MYR "+staff.fnbdisp.get(staff.section4).get(3).get(3)+"    ("+staff.fnbdisp.get(staff.section4).get(3).get(2)+")");
             l99.setBounds(550, 538+2+y2, 580, 38);
             l99.setOpaque(true);
             l99.setBackground(design.dgray);
@@ -229,10 +229,10 @@ public class Confirm_Delete implements ActionListener {
         label1.add(prevpage);
         label1.add(logout);
         label1.add(done);
-        if (staff.section2 != 0) {
+        if (staff.section4 != 0) {
             label1.add(prev);
         }
-        if (staff.section2 != staff.disp.size() - 1) {
+        if (staff.section4 != staff.fnbdisp.size() - 1) {
             label1.add(next);
         }
         frame.add(pgnum);
@@ -245,40 +245,39 @@ public class Confirm_Delete implements ActionListener {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setVisible(true);
     }
+
     @Override
     public void actionPerformed (ActionEvent e){
         if (e.getSource()==prevpage){
-            new DeleteMovieList(staff.section);
+            new DeleteFB(staff.section3);
             frame.dispose();
         }
         if (e.getSource()==prev){
-            if(staff.section2==0){
-                new Confirm_Delete(0);
+            if(staff.section4==0){
+                new ConfirmDelFB(0);
                 frame.dispose();
             } else {
-                staff.section2--;
-                new Confirm_Delete(staff.section2);
+                staff.section4--;
+                new ConfirmDelFB(staff.section4);
                 frame.dispose();
             }
         }
         if (e.getSource()==next){
-            if(staff.section2==staff.disp.size()-1){
-                new Confirm_Delete(staff.section2);
+            if(staff.section4==staff.fnbdisp.size()-1){
+                new ConfirmDelFB(staff.section4);
                 frame.dispose();
             } else {
-                staff.section2++;
-                new Confirm_Delete(staff.section2);
+                staff.section4++;
+                new ConfirmDelFB(staff.section4);
                 frame.dispose();
             }
         }
         if(e.getSource()==done){
-            for(ArrayList<String> p : staff.todel){
-                dbase.delMovies(p.get(1));
-                dbase.delCasts(p.get(1));
-                dbase.delDTL_all(p.get(1));
+            for(ArrayList<String> p : staff.fnbtodel){
+                dbase.delFNB(p.get(1));
             }
-            staff.section=0;
-            staff.section2=0;
+            staff.section3=0;
+            staff.section4=0;
             staff.partialRESET();
             new SettingMovie();
             frame.dispose();
