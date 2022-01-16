@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSetMetaData;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class dbase{
     static Connection con;
@@ -1025,4 +1026,33 @@ public class dbase{
         }
         return rowsUpdated;
     }
+    public static ArrayList<String> getDTL_uniquehall(){
+        String query = "SELECT m_hallno FROM datetimeloc";
+        ArrayList<String> arr = new ArrayList<String>();
+        ArrayList<String> temp = new ArrayList<String>();
+        try {
+            getConnection();
+            Statement statement = con.createStatement();
+            ResultSet result = statement.executeQuery(query);
+            ResultSetMetaData rsmd = result.getMetaData();
+            //each row of data from DB
+            while(result.next()){
+                temp.add(result.getString(1));
+            }
+            HashMap<String, Integer> hm = new HashMap<String, Integer>();
+            for(String i : temp){
+                hm.put(i, 0);
+            }
+            for(String i : hm.keySet()){
+                arr.add(i);
+            }
+            System.out.print("success - getDTL_hallmin()");
+            closeConnection();
+        } catch(Exception e){
+            System.out.print("ERROR:: getDTL_hallmin()");
+            closeConnection();
+            e.printStackTrace();
+        }
+        return arr;
+    } // DECICATED TO the update hall capacity function
 }

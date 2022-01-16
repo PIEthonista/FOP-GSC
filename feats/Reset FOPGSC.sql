@@ -288,6 +288,7 @@ INSERT INTO customer(c_name, c_email, c_uname, c_pswd, c_phno) VALUES('Tan Hui X
 /* staff */
 INSERT INTO staff VALUES(1,'Ang Tan Fong', 'angtf@gmail.com', 'AngTF', 'wasd', '0123456789');
 INSERT INTO staff VALUES(2,'Root', 'no_email', 'root', 'qwerty', '0000000000');
+INSERT INTO staff VALUES(3,'Root', 'no_email', 'a', 'a', '0000000000');
 
 /* fnb */
 INSERT INTO fnb(f_name,f_desc,f_price) VALUES('Popcorn','Delicious Caramel Popcorns!',10);
@@ -475,7 +476,9 @@ INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, c07, c08,
 INSERT INTO datetimeloc(m_title, m_date, m_time, m_hallno, m_capacity, a07, a08, a09, a10, b03, b04, b05, b06, c07, c08, c09, c10) VALUES("Your Name", "2022-01-19", "16:00", "07", 80, 1,1,1,1,1,1,1,1,1,1,1,1);
 
 
-
+SELECT * FROM casts;
+SELECT * FROM datetimeloc;
+SELECT * FROM movies;
 /*
 SELECT * FROM information_schema.tables WHERE TABLE_SCHEMA='FOPGSC';
 
