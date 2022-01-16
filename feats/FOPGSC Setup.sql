@@ -1,17 +1,9 @@
 /*
-This script will RESET the whole database to its initial form.
-RUN WITH CAUTION!
+Run this script if this is your first time setting up the database.
 */
 
+CREATE DATABASE FOPGSC;
 USE FOPGSC;
-
-DROP TABLE customer;
-DROP TABLE history;
-DROP TABLE staff;
-DROP TABLE fnb;
-DROP TABLE movies;
-DROP TABLE casts;
-DROP TABLE datetimeloc;
 
 CREATE TABLE customer(
     c_id INT AUTO_INCREMENT,
