@@ -141,7 +141,7 @@ public class DeleteMovieList implements ActionListener {
             l3.setFont(design.ss20i);
             frame.add(l3);
             l33 = new JLabel("Release date: "+staff.movi.get(staff.section).get(0).get(2));
-            l33.setBounds(550, 163+2+y2, 580, 38);      // ##
+            l33.setBounds(550, 163+2+y2, 500, 38);      // ##
             l33.setOpaque(true);
             l33.setBackground(design.dgray);
             l33.setForeground(design.lgray);
@@ -178,7 +178,7 @@ public class DeleteMovieList implements ActionListener {
             l4.setFont(design.ss20i);
             frame.add(l4);
             l44 = new JLabel("Release date: "+staff.movi.get(staff.section).get(1).get(2));
-            l44.setBounds(550, 225+2+y2, 580, 38);
+            l44.setBounds(550, 225+2+y2, 500, 38);
             l44.setOpaque(true);
             l44.setBackground(design.dgray);
             l44.setForeground(design.lgray);
@@ -215,7 +215,7 @@ public class DeleteMovieList implements ActionListener {
             l5.setFont(design.ss20i);
             frame.add(l5);
             l55 = new JLabel("Release date: "+staff.movi.get(staff.section).get(2).get(2));
-            l55.setBounds(550, 288+2+y2, 580, 38);
+            l55.setBounds(550, 288+2+y2, 500, 38);
             l55.setOpaque(true);
             l55.setBackground(design.dgray);
             l55.setForeground(design.lgray);
@@ -252,7 +252,7 @@ public class DeleteMovieList implements ActionListener {
             l6.setFont(design.ss20i);
             frame.add(l6);
             l66 = new JLabel("Release date: "+staff.movi.get(staff.section).get(3).get(2));
-            l66.setBounds(550, 350+2+y2, 580, 38);
+            l66.setBounds(550, 350+2+y2, 500, 38);
             l66.setOpaque(true);
             l66.setBackground(design.dgray);
             l66.setForeground(design.lgray);
@@ -289,7 +289,7 @@ public class DeleteMovieList implements ActionListener {
             l7.setFont(design.ss20i);
             frame.add(l7);
             l77 = new JLabel("Release date: "+staff.movi.get(staff.section).get(4).get(2));
-            l77.setBounds(550, 413+2+y2, 580, 38);
+            l77.setBounds(550, 413+2+y2, 500, 38);
             l77.setOpaque(true);
             l77.setBackground(design.dgray);
             l77.setForeground(design.lgray);
@@ -326,7 +326,7 @@ public class DeleteMovieList implements ActionListener {
             l8.setFont(design.ss20i);
             frame.add(l8);
             l88 = new JLabel("Release date: "+staff.movi.get(staff.section).get(5).get(2));
-            l88.setBounds(550, 475+2+y2, 580, 38);
+            l88.setBounds(550, 475+2+y2, 500, 38);
             l88.setOpaque(true);
             l88.setBackground(design.dgray);
             l88.setForeground(design.lgray);
@@ -363,7 +363,7 @@ public class DeleteMovieList implements ActionListener {
             l9.setFont(design.ss20i);
             frame.add(l9);
             l99 = new JLabel("Release date: "+staff.movi.get(staff.section).get(6).get(2));
-            l99.setBounds(550, 538+2+y2, 580, 38);
+            l99.setBounds(550, 538+2+y2, 500, 38);
             l99.setOpaque(true);
             l99.setBackground(design.dgray);
             l99.setForeground(design.lgray);

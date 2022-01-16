@@ -32,7 +32,7 @@ public class CoverPage extends JFrame implements ActionListener {
         label.setHorizontalAlignment(JLabel.CENTER);
 
         // default x=220 y=275 w=300 h=40
-        myButton1.setBounds(675, 40, 160, 40);    //yx
+        myButton1.setBounds(675, 40, 180, 40);    //yx
         myButton1.setVerticalAlignment(JLabel.CENTER);
         myButton1.setBackground(design.yellow);
         myButton1.setFocusable(false);
