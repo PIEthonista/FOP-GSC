@@ -113,7 +113,7 @@ public class CancelMovie implements ActionListener {
 
         if(1<=c){
             myButton3 = new JButton("Select");
-            myButton3.setBounds(1150,163+y,70,38);
+            myButton3.setBounds(1130,163+y,90,38);
             myButton3.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(0))>0){
                 myButton3.setBackground(design.orange);
@@ -150,7 +150,7 @@ public class CancelMovie implements ActionListener {
         }
         if(2<=c){
             myButton4 = new JButton("Select");
-            myButton4.setBounds(1150,225+y,70,38);
+            myButton4.setBounds(1130,225+y,90,38);
             myButton4.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(1))>0){
                 myButton4.setBackground(design.orange);
@@ -187,7 +187,7 @@ public class CancelMovie implements ActionListener {
         }
         if(3<=c){
             myButton5 = new JButton("Select");
-            myButton5.setBounds(1150,288+y,70,38);
+            myButton5.setBounds(1130,288+y,90,38);
             myButton5.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(2))>0){
                 myButton5.setBackground(design.orange);
@@ -224,7 +224,7 @@ public class CancelMovie implements ActionListener {
         }
         if(4<=c){
             myButton6 = new JButton("Select");
-            myButton6.setBounds(1150,350+y,70,38);
+            myButton6.setBounds(1130,350+y,90,38);
             myButton6.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(3))>0){
                 myButton6.setBackground(design.orange);
@@ -261,7 +261,7 @@ public class CancelMovie implements ActionListener {
         }
         if(5<=c){
             myButton7 = new JButton("Select");
-            myButton7.setBounds(1150,413+y,70,38);
+            myButton7.setBounds(1130,413+y,90,38);
             myButton7.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(4))>0){
                 myButton7.setBackground(design.orange);
@@ -298,7 +298,7 @@ public class CancelMovie implements ActionListener {
         }
         if(6<=c){
             myButton8 = new JButton("Select");
-            myButton8.setBounds(1150,475+y,70,38);
+            myButton8.setBounds(1130,475+y,90,38);
             myButton8.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(5))>0){
                 myButton8.setBackground(design.orange);
@@ -335,7 +335,7 @@ public class CancelMovie implements ActionListener {
         }
         if(7<=c){
             myButton9 = new JButton("Select");
-            myButton9.setBounds(1150,538+y,70,38);
+            myButton9.setBounds(1130,538+y,90,38);
             myButton9.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(movi.hist.get(movi.section3).get(6))>0){
                 myButton9.setBackground(design.orange);
