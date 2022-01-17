@@ -112,7 +112,7 @@ public class DeleteMovieList implements ActionListener {
         }
 
         if(1<=c){
-            myButton3 = new JButton("Remove");
+            myButton3 = new JButton("Select");
             myButton3.setBounds(1100,163+y,120,38);
             myButton3.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(0))>0){
@@ -149,7 +149,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l33);
         }
         if(2<=c){
-            myButton4 = new JButton("Remove");
+            myButton4 = new JButton("Select");
             myButton4.setBounds(1100,225+y,120,38);
             myButton4.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(1))>0){
@@ -186,7 +186,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l44);
         }
         if(3<=c){
-            myButton5 = new JButton("Remove");
+            myButton5 = new JButton("Select");
             myButton5.setBounds(1100,288+y,120,38);
             myButton5.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(2))>0){
@@ -223,7 +223,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l55);
         }
         if(4<=c){
-            myButton6 = new JButton("Remove");
+            myButton6 = new JButton("Select");
             myButton6.setBounds(1100,350+y,120,38);
             myButton6.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(3))>0){
@@ -260,7 +260,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l66);
         }
         if(5<=c){
-            myButton7 = new JButton("Remove");
+            myButton7 = new JButton("Select");
             myButton7.setBounds(1100,413+y,120,38);
             myButton7.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(4))>0){
@@ -297,7 +297,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l77);
         }
         if(6<=c){
-            myButton8 = new JButton("Remove");
+            myButton8 = new JButton("Select");
             myButton8.setBounds(1100,475+y,120,38);
             myButton8.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(5))>0){
@@ -334,7 +334,7 @@ public class DeleteMovieList implements ActionListener {
             frame.add(l88);
         }
         if(7<=c){
-            myButton9 = new JButton("Remove");
+            myButton9 = new JButton("Select");
             myButton9.setBounds(1100,538+y,120,38);
             myButton9.setVerticalAlignment(JLabel.CENTER);
             if(inTODEL(staff.movi.get(staff.section).get(6))>0){
